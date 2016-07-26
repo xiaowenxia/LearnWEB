@@ -3,18 +3,111 @@
 <head>
 	<meta charset="UTF-8">
 	<title>accordion</title>
-	<link rel="stylesheet" type="text/css" href="../../themes/default/easyui.css">
-	<link rel="stylesheet" type="text/css" href="../../themes/icon.css">
-	<link rel="stylesheet" type="text/css" href="../demo.css">
-	<script type="text/javascript" src="../../jquery.min.js"></script>
-	<script type="text/javascript" src="../../jquery.easyui.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="./jquery-easyui-v1.4.4/themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="./jquery-easyui-v1.4.4/themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="./jquery-easyui-v1.4.4/demo/demo.css">
+	<script type="text/javascript" src="./jquery-easyui-v1.4.4/jquery.min.js"></script>
+	<script type="text/javascript" src="./jquery-easyui-v1.4.4/jquery.easyui.min.js"></script>
 </head>
-
-	<div class="easyui_accordion">
-		<div id="d"></div>
-	</div>
 <body>
-	
 
+	<div id="x" class="easyui-accordion" style="background:#95B8E7;border-width:7px;width:300px;height:600px;">
+		<div title="search" data-options="iconCls:'icon-search',collapsed:false,collapsible:false" style="padding:10px;">
+			<input type="text" class="easyui-searchbox" prompt="this is accordion" style="width: 200px;height: 20px;padding: 10px;">
+		</div>
+		<div title="help" data-options="iconCls:'icon-help'" style="padding: 10px;">
+			<h3>this is accordion</h3>
+		</div>
+		
+		<div title="list" data-options="iconCls:'icon-edit'" style="overflow:auto;padding:10px;">
+			<ul>
+				<li>this is list 1</li>
+				<li>this is list 2</li>
+				<li>this is list 3</li>
+				<li>this is list 4</li>
+				<li>this is list 5</li>
+			</ul>
+		</div>
+		<div title="table" data-options="iconCls:'icon-edit'" style="overflow:auto;padding:10px;">
+			<table border="2">
+				<tr>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+				</tr>
+			</table>
+		</div>
+		<div title="folder" data-options="iconCls:'icon-save'" style="overflow:auto;padding:10px;">
+			<ul class="easyui-tree">
+				<li>
+					<span>folder</span>
+					<ul>
+						<li>
+							<span>folder1</span>
+							<ul>
+								<li>file1</li>
+								<li>file2</li>
+								<li>file3</li>
+							</ul>
+						</li>
+						<li>
+							<span>folder2</span>
+							<ul>
+								<li>file1</li>
+								<li>file2</li>
+								<li>file3</li>
+							</ul>
+						</li>	
+						<li>
+							<span>folder3</span>
+							<ul>
+								<li>file1</li>
+								<li>file2</li>
+								<li>file3</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+			</ul>
+			<!-- ul.easyui-tree>li>span{folder}+ul>(li>span{folder$}+ul>li{file$}*3)*3 -->
+			<ul class="easyui-tree">
+				<li>
+					<span>folder</span>
+					<ul>
+						<li>
+							<span>folder1</span>
+							<ul>
+								<li>file1</li>
+								<li>file2</li>
+								<li>file3</li>
+							</ul>
+						</li>
+						<li>
+							<span>folder2</span>
+							<ul>
+								<li>file1</li>
+								<li>file2</li>
+								<li>file3</li>
+							</ul>
+						</li>
+						<li>
+							<span>folder3</span>
+							<ul>
+								<li>file1</li>
+								<li>file2</li>
+								<li>file3</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+
+	</div>
 </body>
 </html>
