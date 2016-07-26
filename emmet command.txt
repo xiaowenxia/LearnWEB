@@ -1,0 +1,60 @@
+==========div.foo
+----------------------------------
+<div class="foo"></div>
+----------------------------------
+==========h$[title=item$]{Header $}*3
+----------------------------------
+<h1 title="item1">Header 1</h1>
+<h2 title="item2">Header 2</h2>
+<h3 title="item3">Header 3</h3>
+----------------------------------
+==========table>tr>td{$}*3
+----------------------------------
+<table>
+	<tr>
+		<td>1</td>
+		<td>2</td>
+		<td>3</td>
+	</tr>
+	<tr>
+		<td>1</td>
+		<td>2</td>
+		<td>3</td>
+	</tr>
+</table>
+-----------------------------------
+==========ul.easyui-tree>li>span{folder}+ul>(li>span{folder$}+ul>li{file$}*3)*3
+-----------------------------------
+			<ul class="easyui-tree">
+				<li>
+					<span>folder</span>
+					<ul>
+						<li>
+							<span>folder1</span>
+							<ul>
+								<li>file1</li>
+								<li>file2</li>
+								<li>file3</li>
+							</ul>
+						</li>
+						<li>
+							<span>folder2</span>
+							<ul>
+								<li>file1</li>
+								<li>file2</li>
+								<li>file3</li>
+							</ul>
+						</li>
+						<li>
+							<span>folder3</span>
+							<ul>
+								<li>file1</li>
+								<li>file2</li>
+								<li>file3</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+			</ul>
+-----------------------------------
+
