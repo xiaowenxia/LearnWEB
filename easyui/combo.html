@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>combo</title>
+	<link rel="stylesheet" type="text/css" href="./jquery-easyui-v1.4.4/themes/metro/easyui.css">
+	<link rel="stylesheet" type="text/css" href="./jquery-easyui-v1.4.4/themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="./jquery-easyui-v1.4.4/demo/demo.css">
+	<script type="text/javascript" src="./jquery-easyui-v1.4.4/jquery.min.js"></script>
+	<script type="text/javascript" src="./jquery-easyui-v1.4.4/jquery.easyui.min.js"></script>
+</head>
+<body>
+	<!-- 设置一个下拉列表框，使用select或者input，之后使用option显示data1-data7 -->
+	<select id= "combobox" class="easyui-combobox" style="width: 100px;height: 30px;">
+		<option value="data1">data1</option>
+		<option value="data2">data2</option>
+		<option value="data3">data3</option>
+		<option value="data4">data4</option>
+		<option value="data5">data5</option>
+		<option value="data6">data6</option>
+		<option value="data7">data7</option>
+	</select>
+	<!-- 设置一个自定义的下拉框，通过脚本：
+			$('#combo').combo({
+				required:true,
+				multiple:true
+			});
+	设置为自定义下拉框，然后把list通过appenTo附到combo中形成自定义下拉框 -->
+	<input id="combo" style="width: 150px;height: 30px;">
+	<!-- 定义一个list，然后通过appendTo附到combo中 -->
+	<div id="list">
+			<div>
+				<input type="radio"><span>data1</span><br>
+				<input type="radio"><span>data2</span><br>
+				<input type="radio"><span>data3</span><br>
+			</div>
+	</div>
+	<!-- 回车换行 -->
+	<br>
+	<p>this is animation combobox</p>
+	<div>
+		please select animation type:
+		<!-- 设置一个有onchange事件的下拉单 -->
+		<select id="animation-type" onchange="animationSet(this.value)" style="width: 50px;height: 30px;">
+			<option >slide</option>
+			<option >fade</option>
+			<option >show</option>
+		</select>
+		<div style="margin: 20px 0;"></div>
+		<!-- 定义一个combobox -->
+		<select id="animation" class="easyui-combobox" style="width: 100px;height: 30px;"></select>
+	</div>
+	<script type="text/javascript">
+		$(function(){
+			$('#combo').combo({
+				required:true,
+				multiple:true
+			});
+			// 调用函数animationSet用来设置animation的下拉动画
+			animationSet('slide');
+			// 把list附到combo中
+			$('#list').appendTo($('#combo').combo('panel'));
+			$('#combo').combo('setText',"default value");
+			$('#combo').combo('panel');
+			$('#combo').combo('setValues',"5");
+			//设置combo的默认text为defined combo
+			$('#combo').combo('setValue',"2").combo('setText',"defined combo");
+			//设置combobox默认text为combobox
+			$('#combobox').combo('setText',"combobox");
+		});
+		// 设置animation的下拉动画，其实是设置combo里面的panel样式
+		function animationSet(value){
+			$('#animation').combo('panel').panel({
+				openAnimation:value,
+				closeAnimation:value
+			});
+		}
+	</script>
+</body>
+</html>
