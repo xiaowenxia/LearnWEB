@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" type="text/css" href="./jquery-easyui-v1.4.4/themes/metro/easyui.css">
+	<link rel="stylesheet" type="text/css" href="./jquery-easyui-v1.4.4/themes/default/easyui.css">
 	<link rel="stylesheet" type="text/css" href="./jquery-easyui-v1.4.4/themes/icon.css">
 	<link rel="stylesheet" type="text/css" href="./jquery-easyui-v1.4.4/demo/demo.css">
 	<script type="text/javascript" src="./jquery-easyui-v1.4.4/jquery.min.js"></script>
@@ -11,9 +11,30 @@
 </head>
 <body>
 	<button onclick="add()">增加tab</button>
-	<div class="easyui-tabs" id="tab1"  style="width: 500px;height: 200px;">
+	<br>
+	<span style="color:red;font-size:22px">显示下面tab的名字</span>
+	<input id= "displaytab" class="easyui-combobox" style="width: 200px;height: 30px;" >
+	<br>
+	<div class="easyui-tabs" id="tab1" data-options="border:true" style="width: 600px;height: 300px;">
 		<div title="normal">
-			这是一个正常的tab
+			这是一个正常的tab 高度为300px
+			<ul>
+				<li>list1</li>
+				<li>list2</li>
+				<li>list3</li>
+				<li>list4</li>
+				<li>list5</li>
+				<li>list6</li>
+				<li>list7</li>
+				<li>list8</li>
+				<li>list9</li>
+				<li>list10</li>
+				<li>list11</li>
+				<li>list12</li>
+				<li>list13</li>
+				<li>list14</li>
+				<li>list15</li>
+			</ul>
 		</div>
 		<div title="iconCls" data-options="iconCls:'icon-reload'">
 			这是一个有图标的tab
@@ -21,14 +42,94 @@
 		<div title="closable" data-options="closable:true">
 			这个tab能被关闭
 		</div>
+		<div title="sub tabs" class="easyui-tabs" data-options="fit:true,pill:true,selected:true" style="padding:10px">
+			<br>
+			<span style="font-size:20px;color:red;margin:20px">这是一个子tabs</span>
+			<br>
+			<div title="autoheight" data-options="boarder:true,selected:true">
+				这是个气泡样式的tab
+				<ul>
+					<li>list1</li>
+					<li>list2</li>
+					<li>list3</li>
+					<li>list4</li>
+					<li>list5</li>
+					<li>list6</li>
+					<li>list7</li>
+					<li>list8</li>
+					<li>list9</li>
+					<li>list15</li>
+				</ul>
+			</div>
+			<div title="iconCls" data-options="iconCls:'icon-reload'">
+				这是一个有图标的tab
+			</div>
+			<div title="closable" data-options="closable:true">
+				这个tab能被关闭
+			</div>
+		</div>
 		<div title="can no click here" style="display:none">
 			这个是不能显示的tab
 		</div>
 	</div>
+	
 	<br>
 	<br>
-	<span style="color:red;font-size:22px">显示tab的名字</span>
-	<input id= "displaytab" class="easyui-combobox" style="width: 200px;height: 30px;" >
+	
+	<span style="color:red;font-size:22px">设置下面的tab的风格</span>
+	<select name="" id="tabstyle" class="easyui-combobox"style="width: 200px;height: 30px">
+		<option value="plain">显示控制面板背景</option>
+		<option value="narrow">不显示选项卡空隙</option>
+		<option value="pill">选项卡样式气泡状</option>
+		<option value="justified">选项卡等宽</option>		
+	</select>
+	<div>
+		<input id="style-plain" type="text" class="easyui-switchbutton" >
+		<span style="color:red;font-size:16px">：显示控制面板背景</span>
+		<br>
+		<input id="style-narrow" type="text" class="easyui-switchbutton" >
+		<span style="color:red;font-size:16px">：不显示选项卡空隙</span>
+		
+		<br>
+		<input id="style-pill" type="text" class="easyui-switchbutton" >
+		<span style="color:red;font-size:16px">：选项卡样式气泡状</span>
+		
+		<br>
+		<input id="style-justified" type="text" class="easyui-switchbutton" >
+		<span style="color:red;font-size:16px">：设置选项卡等宽</span>
+		
+	</div>
+	<div class="easyui-tabs" id="tab2" data-options="plain:true" style="width: 300px;height:auto">
+		<div title="autoheight" data-options="boarder:true">
+			这是一个自动调整高度.,气泡样式的tab
+			<ul>
+				<li>list1</li>
+				<li>list2</li>
+				<li>list3</li>
+				<li>list4</li>
+				<li>list5</li>
+				<li>list6</li>
+				<li>list7</li>
+				<li>list8</li>
+				<li>list9</li>
+				<li>list10</li>
+				<li>list11</li>
+				<li>list12</li>
+				<li>list13</li>
+				<li>list14</li>
+				<li>list15</li>
+			</ul>
+		</div>
+		<div title="iconCls" data-options="iconCls:'icon-reload'">
+			这是一个有图标的tab
+		</div>
+		<div title="closable" data-options="closable:true">
+			这个tab能被关闭
+		</div>
+	</div>
+
+	
+
 	<script>
 	$(function(){
 		$("#displaytab").combobox("setValue","还没有选中tab");
@@ -39,6 +140,77 @@
 				//$("#tab1").tabs("options").title
 			}
 		});
+		$("#style-plain").switchbutton({
+			checked: true,
+			onChange:function(checked){
+				$("#tab2").tabs({
+						plain:checked
+					});
+			}
+		});
+		$("#style-narrow").switchbutton({
+			checked: false,
+			onChange:function(checked){
+				$("#tab2").tabs({
+						narrow:checked
+					});
+			}
+		});
+		$("#style-pill").switchbutton({
+			checked: false,
+			onChange:function(checked){
+				$("#tab2").tabs({
+						pill:checked
+					});
+			}
+		});
+		$("#style-justified").switchbutton({
+			checked: false,
+			onChange:function(checked){
+				$("#tab2").tabs({
+						justified:checked
+					});
+			}
+		});
+
+		$("#tabstyle").combobox({
+			onChange:function(value){
+				//$("#tab1").tabs("options").pill = true;
+				if(value == "plain"){
+					$("#style-plain").switchbutton({
+						checked:true
+					});
+					$("#tab2").tabs({
+						plain:true
+					});
+				}
+				if(value == "narrow"){
+					$("#style-narrow").switchbutton({
+						checked:true
+					});
+					$("#tab2").tabs({
+						narrow:true
+					});
+				}
+				if(value == "pill"){
+					$("#style-pill").switchbutton({
+						checked:true
+					});
+					$("#tab2").tabs({
+						pill:true
+					});
+				}
+				if(value == "justified"){
+					$("#style-justified").switchbutton({
+						checked:true
+					});
+					$("#tab2").tabs({
+						justified:true
+					});
+				}
+				//alert(value);
+			}
+		})
 	});
 	function add(){
 		$("#tab1").tabs(
