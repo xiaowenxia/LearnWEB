@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="./jquery-easyui-v1.4.4/themes/metro/easyui.css">
+	<link rel="stylesheet" type="text/css" href="./jquery-easyui-v1.4.4/themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="./jquery-easyui-v1.4.4/demo/demo.css">
+	<script type="text/javascript" src="./jquery-easyui-v1.4.4/jquery.min.js"></script>
+	<script type="text/javascript" src="./jquery-easyui-v1.4.4/jquery.easyui.min.js"></script>
+	<title>tabs</title>
+</head>
+<body>
+	<button onclick="add()">增加tab</button>
+	<div class="easyui-tabs" id="tab1"  style="width: 500px;height: 200px;">
+		<div title="normal">
+			这是一个正常的tab
+		</div>
+		<div title="iconCls" data-options="iconCls:'icon-reload'">
+			这是一个有图标的tab
+		</div>
+		<div title="closable" data-options="closable:true">
+			这个tab能被关闭
+		</div>
+		<div title="can no click here" style="display:none">
+			这个是不能显示的tab
+		</div>
+	</div>
+	<br>
+	<br>
+	<span style="color:red;font-size:22px">显示tab的名字</span>
+	<input id= "displaytab" class="easyui-combobox" style="width: 200px;height: 30px;" >
+	<script>
+	$(function(){
+		$("#displaytab").combobox("setValue","还没有选中tab");
+		$("#tab1").tabs({
+			onSelect:function(title){
+				//alert(title+' is selected');
+				$("#displaytab").combobox("setValue","你选择了"+title);
+				//$("#tab1").tabs("options").title
+			}
+		});
+	});
+	function add(){
+		$("#tab1").tabs(
+			'add',{
+			title: 'new',
+			selected: true,
+			content:"这是一个新的选项卡面板"
+		});
+	}
+	</script>
+</body>
+</html>

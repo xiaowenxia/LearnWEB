@@ -11,6 +11,7 @@
 </head>
 <body>
 	<!-- 设置一个下拉列表框，使用select或者input，之后使用option显示data1-data7 -->
+	<span style="color:#7f0f0f">这是一个下拉框：</span>
 	<select id= "combobox" class="easyui-combobox" style="width: 100px;height: 30px;">
 		<option value="data1">data1</option>
 		<option value="data2">data2</option>
@@ -20,12 +21,15 @@
 		<option value="data6">data6</option>
 		<option value="data7">data7</option>
 	</select>
-	<!-- 设置一个自定义的下拉框，通过脚本：
-			$('#combo').combo({
-				required:true,
-				multiple:true
-			});
-	设置为自定义下拉框，然后把list通过appenTo附到combo中形成自定义下拉框 -->
+	<br>
+	<br>
+	<br>
+	设置一个自定义的下拉框，通过脚本：<br>
+			$('#combo').combo({<br>
+				required:true,<br>
+				multiple:true<br>
+			});<br>
+	设置为自定义下拉框，然后把list通过appenTo附到combo中形成自定义下拉框：
 	<input id="combo" style="width: 150px;height: 30px;">
 	<!-- 定义一个list，然后通过appendTo附到combo中 -->
 	<div id="list">

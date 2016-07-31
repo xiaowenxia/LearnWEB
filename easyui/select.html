@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="./jquery-easyui-v1.4.4/themes/metro/easyui.css">
+	<link rel="stylesheet" type="text/css" href="./jquery-easyui-v1.4.4/themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="./jquery-easyui-v1.4.4/demo/demo.css">
+	<script type="text/javascript" src="./jquery-easyui-v1.4.4/jquery.min.js"></script>
+	<script type="text/javascript" src="./jquery-easyui-v1.4.4/jquery.easyui.min.js"></script>
+	<title>select</title>
+</head>
+<body>
+	<select class="easyui-combobox" id="sss" style="color:red;">
+		<option value="xiaxiaowen1">xiaxiaowen1</option>
+		<option value="xiaxiaowen2">xiaxiaowen2</option>
+		<option value="xiaxiaowen3">xiaxiaowen3</option>
+		<option value="xiaxiaowen4">xiaxiaowen4</option>
+		<option value="xiaxiaowen5">xiaxiaowen5</option>
+	</select>
+	<input type="text" id="inxia">
+	<script>
+	$(function(){
+		$("#sss").combo("setText","fdsafdsa");
+		$("#sss").combobox("select","2");
+		$("#sss").combobox({
+			onChange:function(n,o){
+				$("#inxia").val($("#sss").combobox("getValue"));
+			}
+			//onChange:function(n,o){alert("fdsafdsa");}
+		});
+	});
+	function setinput(){
+		
+	}
+	</script>
+</body>
+</html>
