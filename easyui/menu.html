@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>menu</title>
+	<link rel="stylesheet" type="text/css" href="./jquery-easyui-v1.4.4/themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="./jquery-easyui-v1.4.4/themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="./jquery-easyui-v1.4.4/demo/demo.css">
+	<script type="text/javascript" src="./jquery-easyui-v1.4.4/jquery.min.js"></script>
+	<script type="text/javascript" src="./jquery-easyui-v1.4.4/jquery.easyui.min.js"></script>
+</head>
+<body>
+	
+	<p>这是一个菜单栏</p>
+	<a id="xia_button" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-more'">菜单</a>  
+	<a href="javascript:void(0)" id="xia_menubutton" class="easyui-menubutton"     
+        data-options="menu:'#xia_menu',iconCls:'icon-edit'">Edit</a>   
+
+	<a href="javascript:void(0)" id="sb" class="easyui-splitbutton"   
+        data-options="menu:'#mm',iconCls:'icon-ok'" onclick="javascript:alert('ok')">Ok</a>   
+<div id="mm" style="width:100px;">   
+    <div data-options="iconCls:'icon-ok'">Ok</div>   
+    <div data-options="iconCls:'icon-cancel'">Cancel</div>   
+</div>  
+
+
+	<br><br><br><br><br>
+	<div id="xia_menu" class="easyui-menu" style="width: 100px;">
+		<div data-options="iconCls:'icon-add',name:'createbutton'">创建tab</div>
+		<div data-options="iconCls:'icon-remove',name:'deletebutton'">删除tab</div>
+		<div>new</div>
+		<div>new</div>
+		<div>new</div>
+	</div>
+	
+	<div id="xia_tab" class="easyui-tabs" data-options="" style="width: 600px;height:300px">
+		<div title="autoheight" data-options="boarder:true">
+			这是一个tab
+		</div>
+	</div>
+	
+	<script type="text/javascript">
+		$(function(){
+			$("#xia_menu").menu({
+			onClick:function(item){
+				if(item.name == "createbutton")
+				{
+					$("#xia_tab").tabs("add",{
+							title: 'new',
+							selected: true,
+							content:"这是一个新的选项卡面板"
+						});
+				}
+				else if(item.name == "deletebutton")
+				{
+					var tab = $("#xia_tab").tabs("getSelected");
+					var index = $("#xia_tab").tabs("getTabIndex",tab);
+					$("#xia_tab").tabs("close",index);
+				}
+			}
+			});
+			$("#xia_button").linkbutton({
+				onClick:function(){
+					$('#xia_menu').menu('show', {    
+					  left: 80,    
+					  top: 60    
+					});
+				}
+			});
+		});
+
+	</script>
+</body>
+</html>

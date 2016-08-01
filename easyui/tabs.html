@@ -102,6 +102,14 @@
 		<span style="color:red;font-size:16px">：设置选项卡等宽</span>
 		
 	</div>
+	调整tab的宽度
+	<br>
+	<br>
+	<br>
+	<input id="xia_slider" class="easyui-slider" value="300" style="width: 300px;" data-options="min:200,max:500,showTip:true,rule:[200,'|',250,'|',300,'|',350,'|',400,'|',450,'|',500]">
+	<br>
+	<br>
+	<br>
 	<div class="easyui-tabs" id="tab2" data-options="plain:true" style="width: 300px;height:auto">
 		<div title="autoheight" data-options="boarder:true">
 			这是一个自动调整高度.,气泡样式的tab
@@ -143,6 +151,14 @@
 				var pp = $("#tab1").tabs("getSelected").panel("options").title;
 				$("#displaytab").combobox("setValue","你选择了"+pp);
 				//$("#tab1").tabs("options").title
+			}
+		});
+		$("#xia_slider").slider({
+			onChange:function(newValue,oldValue){
+				$("#tab2").tabs({
+						width:newValue,
+						height:300
+					});
 			}
 		});
 		//var tab2_h = $("#tab2").tabs("height");

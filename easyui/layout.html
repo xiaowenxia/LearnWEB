@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>layout</title>
+	<link rel="stylesheet" type="text/css" href="./jquery-easyui-v1.4.4/themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="./jquery-easyui-v1.4.4/themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="./jquery-easyui-v1.4.4/demo/demo.css">
+	<script type="text/javascript" src="./jquery-easyui-v1.4.4/jquery.min.js"></script>
+	<script type="text/javascript" src="./jquery-easyui-v1.4.4/jquery.easyui.min.js"></script>
+</head>
+<body>
+<!-- <input id= "displaytab" class="easyui-combobox" style="width: 200px;height: 30px;" > -->
+	<div id="xia_layout" class="easyui-layout" style="width: 700px;height: 600px;">
+		<div data-options="region:'north',title:'North Title',split:true" style="height:200px;">
+			<div id="xia_tab" class="easyui-tabs" style="width:auto;height:100%">
+				<div title="tab1">这是tab1</div>
+				<div title="tab2">这是tab2</div>
+				<div title="tab3">这是tab3</div>
+				<div title="tab4">这是tab4</div>
+			</div>
+		</div>
+		<div data-options="region:'south',title:'South Title'" style="height:100px;"></div> 
+		<div data-options="region:'east',title:'east Title',split:true" style="width:100px;"></div>
+		<div data-options="region:'west',title:'west Title',split:true" style="width:100px;"></div>
+		<div data-options="region:'center',title:'center Title',split:true" style="width:100px;">
+			<div id="xia_layout2" class="easyui-layout" style="width: auto;height: 100%;">
+				<div data-options="region:'north',title:'north Title',split:true,href:'https://www.baidu.com'" style="width:100%;height:100%;"></div> 
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>读取数据</title>
+	<link rel="stylesheet" type="text/css" href="./jquery-easyui-v1.4.4/themes/metro/easyui.css">
+	<link rel="stylesheet" type="text/css" href="./jquery-easyui-v1.4.4/themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="./jquery-easyui-v1.4.4/demo/demo.css">
+	<script type="text/javascript" src="./jquery-easyui-v1.4.4/jquery.min.js"></script>
+	<script type="text/javascript" src="./jquery-easyui-v1.4.4/jquery.easyui.min.js"></script>
+</head>
+<body>
+	<table class="easyui-datagrid" data-options="url:'./read_data.json',method:'get',fitColumns:true,singleSelect:true" style="width: 500px;height:300px">
+	    <thead>
+	        <tr>
+	            <th data-options="field:'card',width:2">卡号</th>
+	            <th data-options="field:'name'">姓名</th>
+	            <th data-options="field:'time'">时间</th>
+	            <th data-options="field:'date'">日</th>
+	            <th data-options="field:'month'">月</th>
+	            <th data-options="field:'year'">年</th>
+	        </tr>
+	    </thead>
+	</table> 
+
+</body>
+</html>
