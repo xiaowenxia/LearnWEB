@@ -84,6 +84,9 @@
 		<option value="justified">选项卡等宽</option>		
 	</select>
 	<div>
+		<input id="style-autopanel" type="text" class="easyui-switchbutton" data-options="onText:'开',offText:'关'" >
+		<span style="color:red;font-size:16px">：自动调整面板高宽</span>
+		<br>
 		<input id="style-plain" type="text" class="easyui-switchbutton" >
 		<span style="color:red;font-size:16px">：显示控制面板背景</span>
 		<br>
@@ -136,8 +139,30 @@
 		$("#tab1").tabs({
 			onSelect:function(title){
 				//alert(title+' is selected');
-				$("#displaytab").combobox("setValue","你选择了"+title);
+				//$("#displaytab").combobox("setValue","你选择了"+title);
+				var pp = $("#tab1").tabs("getSelected").panel("options").title;
+				$("#displaytab").combobox("setValue","你选择了"+pp);
 				//$("#tab1").tabs("options").title
+			}
+		});
+		//var tab2_h = $("#tab2").tabs("height");
+		$("#style-autopanel").switchbutton({
+			checked: true,
+			onChange:function(checked){
+				if(checked == true)
+				{
+					$("#tab2").tabs({
+						width:300,
+						height:300
+					});
+				}
+				else
+				{
+					$("#tab2").tabs({
+						width:500,
+						height:400
+					});
+				}
 			}
 		});
 		$("#style-plain").switchbutton({
