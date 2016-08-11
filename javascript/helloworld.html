@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>hello world</title>
+	<script src="./sample.js"></script>
+</head>
+<body onload="browser_info()">
+	<button type="button" onclick="button_click()">按下次数</button><input id="xia_input" type="text" value="0"><br>
+	<button type="button" onclick="alert_click()">警告弹框</button><input id="alert_input" type="text" value="no text"><br>
+	<button type="button" onclick="confirm_click()">确认弹框</button><input id="confirm_input" type="text" value="请点击confirm"><br>
+	<button type="button" onclick="prompt_click()">提示弹框</button><input id="prompt_input" type="text" value="请点击prompt"><br>
+	<button type="button" onclick="data_click()">显示当前时间</button><input id="timedisplay_input" type="text" value="" style="width:500px"><br>
+
+	<div id="display_text" onmouseover="display_text()" onmouseout="display_old()" style="background-color:#FF0945;width:300px;height:100px;font-color:#00FFFF;font-size:30px;padding:40px">鼠标移动到这里</div>
+
+	<浏览器信息：<br>
+	<div id="display_browser"></div>
+	<script type="text/javascript">
+		var button_click_count = 0;
+
+		function button_click(){
+			button_click_count ++;
+			document.getElementById("xia_input").value=button_click_count;
+		}
+	</script>
+</body>
+</html>
