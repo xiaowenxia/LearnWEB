@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>accordion</title>
+	<link rel="stylesheet" type="text/css" href="./jquery-easyui-v1.4.4/themes/metro/easyui.css">
+	<link rel="stylesheet" type="text/css" href="./jquery-easyui-v1.4.4/themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="./jquery-easyui-v1.4.4/demo/demo.css">
+	<script type="text/javascript" src="./jquery-easyui-v1.4.4/jquery.min.js"></script>
+	<script type="text/javascript" src="./jquery-easyui-v1.4.4/jquery.easyui.min.js"></script>
+</head>
+<body>
+	<a id="xia_button" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-add'">增加</a>
+	<br><br>
+	<div id="xia_accordion" class="easyui-accordion" style="background:#95B8E7;border-width:7px;width:300px;height:600px;">
+
+		<div title="search" data-options="iconCls:'icon-search',collapsed:false,collapsible:false" style="padding:10px;">
+			<input type="text" class="easyui-searchbox" prompt="this is accordion" style="width: 200px;height: 20px;padding: 10px;">
+		</div>
+		<div title="help" data-options="iconCls:'icon-help'" style="padding: 10px;">
+			<h3>this is accordion</h3>
+		</div>
+		
+		<!-- <div title="list" data-options="iconCls:'icon-edit'" style="overflow:auto;padding:10px;">
+		</div>
+		<div title="table" data-options="iconCls:'icon-edit'" style="overflow:auto;padding:10px;">
+		</div>
+		<div title="folder" data-options="iconCls:'icon-save'" style="overflow:auto;padding:10px;">
+		</div> -->
+		<script type="text/javascript">
+		$(function(){
+			$("#xia_button").linkbutton({
+				onClick:function(){
+					$('#xia_accordion').accordion('add', {    
+					    title: '新标题',
+						content: '<ul><li> <a href="https://www.baidu.com">sb</a></li></ul>',
+						selected: false
+					});
+				}
+			});
+		});
+		</script>
+	</div>
+</body>
+</html>

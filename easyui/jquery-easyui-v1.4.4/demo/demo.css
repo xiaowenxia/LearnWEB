@@ -19,3 +19,11 @@ h2 {
 .demo-tip{
 	display:none;
 }
+.datagrid-mask{
+      opacity:0;
+      filter:alpha(opacity=0);
+    }
+.datagrid-mask-msg{
+  opacity:0;
+  filter:alpha(opacity=0);
+}
