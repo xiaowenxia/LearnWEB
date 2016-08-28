@@ -1,0 +1,23 @@
+.container {
+	/*width: 100%;*/
+}
+.page-header {
+	text-align:center;
+	background: #B19CE6;
+	border-radius:11px;
+}
+.lead {
+	color: #F5D99A;
+	background: #B19CE6;
+}
+
+[class*="col-"]:hover {
+	background-color:#74888F;
+}
+[class*="col-"] {
+	text-align: center;
+   	padding: 20px;
+  	border: 1px solid #ddd;
+  	border-radius:11px;
+  	background-color: #eee;
+}
