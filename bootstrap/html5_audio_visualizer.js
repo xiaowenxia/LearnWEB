@@ -42,12 +42,16 @@ Visualizer.prototype = {
     },
     _addEventListner: function() {
         var that = this,
-            audioInput = document.getElementById('btn_link_1'),
+            audioInput = document.getElementById('input_music'),
             dropContainer = document.getElementsByTagName("canvas")[0];
         //listen the file upload
-        audioInput.onclick = function() {
+        audioInput.onchange = function() {
+            if (that.audioContext===null) {return;};
+            
+            //the if statement fixes the file selction cancle, because the onchange will trigger even the file selection been canceled
+            if (audioInput.files.length !== 0) {
                 //only process the first file
-                that.file = "music/稻香.mp3";
+                that.file = audioInput.files[0];
                 that.fileName = that.file.name;
                 if (that.status === 1) {
                     //the sound is still playing but we upload another file, so set the forceStop flag to true
@@ -57,6 +61,7 @@ Visualizer.prototype = {
                 that._updateInfo('Uploading', true);
                 //once the file is ready,start the visualizer
                 that._start();
+            };
         };
         //listen the drag & drop
         dropContainer.addEventListener("dragenter", function() {
@@ -96,6 +101,7 @@ Visualizer.prototype = {
             file = this.file,
             fr = new FileReader();
         fr.onload = function(e) {
+            console.log(e.target.result);
             var fileResult = e.target.result;
             var audioContext = that.audioContext;
             if (audioContext === null) {
@@ -148,7 +154,7 @@ Visualizer.prototype = {
         };
         this._updateInfo('Playing ' + this.fileName, false);
         this.info = 'Playing ' + this.fileName;
-        document.getElementById('fileWrapper').style.opacity = 0.2;
+        //document.getElementById('fileWrapper').style.opacity = 0.2;
         this._drawSpectrum(analyser);
     },
     _drawSpectrum: function(analyser) {
@@ -224,7 +230,7 @@ Visualizer.prototype = {
             dots = '...',
             i = 0,
             that = this;
-        //infoBar.innerHTML = text + dots.substring(0, i++);
+        infoBar.innerHTML = text + dots.substring(0, i++);
         if (this.infoUpdateId !== null) {
             clearTimeout(this.infoUpdateId);
         };
