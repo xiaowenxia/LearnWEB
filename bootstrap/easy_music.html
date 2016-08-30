@@ -5,9 +5,10 @@
 	<title>grid system</title>
 	<link rel="stylesheet" type="text/css" href="bootstrap-3.3.5-dist/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="easy_music.css">
-	<script src="bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
 	<script src="bootstrap-3.3.5-dist/js/jquery.min.js"></script>
+	<script src="bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
 	<script src="easy_music.js"></script>
+	<script src="html5_audio_visualizer.js"></script>
 </head>
 <body>
 	<div class="container">
@@ -28,71 +29,66 @@
 			   </thead>
 		   <tbody>
 				<tr class="warning">
-					<td Title="稻香"><button type="text" onClick="play_music(this.value)" class="btn btn-link">稻香</button></td>
+					<td Title="稻香"><button id="btn_link_1" type="text" value="music/稻香.mp3" class="btn btn-link">稻香</button></td>
 					<td>《魔杰座》</td>
 					<td style="text-align:center">03:43</td>
 					<td style="text-align:center"><img src="icons/signal_5.png" style="height:20px"></td>
 					<td>
-						<button type="text" class="btn btn-success">播放</button>
+						<button type="text" onClick="play_music(this.value)" value="music/稻香.mp3" class="btn btn-success">播放</button>
 						<button type="text" class="btn btn-primary">下载</button>
-						<button type="text" class="btn btn-info">信息</button>
 					</td>
 				</tr>
 				<tr class="warning">
-					<td Title="青花瓷"><button type="text" class="btn btn-link">青花瓷</button></td>
+					<td Title="青花瓷"><button type="text" onClick="play_music(this.value)" value="music/青花瓷.mp3" class="btn btn-link">青花瓷</button></td>
 					<td>《我很忙》</td>
 					<td style="text-align:center">03:57</td>
 					<td style="text-align:center"><img src="icons/signal_2.png" style="height:20px"></td>
 					<td>
-						<button type="text" class="btn btn-success">播放</button>
+						<button type="text" onClick="play_music(this.value)" value="music/青花瓷.mp3" class="btn btn-success">播放</button>
 						<button type="text" class="btn btn-primary">下载</button>
-						<button type="text" class="btn btn-info">信息</button>
 					</td>
 				</tr>
 				<tr class="warning">
-					<td Title="晴天"><button type="text" class="btn btn-link">晴天</button></td>
+					<td Title="晴天"><button type="text" onClick="play_music(this.value)" value="music/晴天.mp3" class="btn btn-link">晴天</button></td>
 					<td>《叶惠美》</td>
 					<td style="text-align:center">04:30</td>
 					<td style="text-align:center"><img src="icons/signal_1.png" style="height:20px"></td>
 					<td>
-						<button type="text" class="btn btn-success">播放</button>
+						<button type="text" onClick="play_music(this.value)" value="music/晴天.mp3" class="btn btn-success">播放</button>
 						<button type="text" class="btn btn-primary">下载</button>
-						<button type="text" class="btn btn-info">信息</button>
 					</td>
 				</tr>
 
 				<tr class="warning">
-					<td Title="听妈妈的话"><button type="text" class="btn btn-link">听妈妈的话</button></td>
+					<td Title="听妈妈的话"><button type="text" onClick="play_music(this.value)" value="music/听妈妈的话.mp3" class="btn btn-link">听妈妈的话</button></td>
 					<td>《依然范特西》</td>
 					<td style="text-align:center">04:23</td>
 					<td style="text-align:center"><img src="icons/signal_4.png" style="height:20px"></td>
 					<td>
-						<button type="text" class="btn btn-success">播放</button>
+						<button type="text" onClick="play_music(this.value)" value="music/听妈妈的话.mp3" class="btn btn-success">播放</button>
 						<button type="text" class="btn btn-primary">下载</button>
-						<button type="text" class="btn btn-info">信息</button>
 					</td>
 				</tr>
 
 				<tr class="warning">
-					<td Title="七里香"><button type="text" class="btn btn-link">七里香</button></td>
+					<td Title="七里香"><button type="text" onClick="play_music(this.value)" value="music/七里香.mp3" class="btn btn-link">七里香</button></td>
 					<td >《七里香》</td>
 					<td style="text-align:center">04:58</td>
 					<td style="text-align:center"><img src="icons/signal_3.png" style="height:20px"></td>
 					<td>
-						<button type="text" class="btn btn-success">播放</button>
-						<button type="text" class="btn btn-primary">下载</button>
-						<button type="text" class="btn btn-info">信息</button>
+						<button type="text" onClick="play_music(this.value)" value="music/七里香.mp3" class="btn btn-success">播放</button>
+						<button type="text" onClick="download_music(this.value)" value="music/七里香.mp3" class="btn btn-primary">下载</button>
 					</td>
 				</tr>
 		   </tbody>
 		</table>
 	</div>
 	<div class="row">  
-		<div class="col-md-4" style="margin:0 auto;float:none;">
+		<div class="col-md-4" style="margin:0 auto;float:none;">  
 			<div>
 				正在播放: <strong id="rmusic"></strong>  
 			</div> 
-			<audio id="audio" src="./music/稻香.mp3" controls></audio>  
+			<audio id="audio_xx" src="music/稻香.mp3" controls="controls"></audio>  
 			<br>
 			<div class="btn-group" id="ctrl-area">  
 				<button id="btn-play" class="btn btn-success">播放</button>  
@@ -100,6 +96,14 @@
 				<button id="btn-next" class="btn btn-success">下一首</button>  
 				<button id="btn-pause" class="btn btn-success">暂停</button>
 			</div>
+		</div>  
+	</div>
+
+	<div class="row">  
+		<div class="col-md-4" style="margin:0 auto;float:none;">  
+			<div id="visualizer_wrapper">
+                <canvas id='canvas' width="800" height="350"></canvas>
+            </div>
 		</div>  
 	</div>
 </body>
