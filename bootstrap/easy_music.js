@@ -1,9 +1,70 @@
+function create_music_obj(name, album, length, path, operation){
+    var music_obj = new Object();
+    music_obj.name = name;
+    music_obj.album = album;
+    music_obj.length = length;
+    music_obj.operation = operation;
+    music_obj.path = path;
+    music_obj.info = function(){
+        console.log("path:" + music_obj.path + "\nname:" + music_obj.name + "\nalbum:" + music_obj.album + "\nlength:" + music_obj.length);
+    }
+    return music_obj;
+}
+
 $(function(){
 	$("#btn-play").on("click",function(){$("#audio_xx").trigger('play');});
 	$("#btn-pre").on("click",function(){$("#audio_xx").trigger('play');});
 	$("#btn-next").on("click",function(){$("#audio_xx").trigger('play');});
 	$("#btn-pause").on("click",function(){$("#audio_xx").trigger('pause');});
-
+    music_all = {
+        music_obj:[
+            {
+                name: "稻香", 
+                album: "《魔杰座》",
+                length: "03:43",
+                path: "music/稻香.mp3",
+                hot: '5'
+            },
+            {
+                name: "青花瓷", 
+                album: "《我很忙》",
+                length: "03:57",
+                path: "music/青花瓷.mp3",
+                hot: '2'
+            },
+            {
+                name: "晴天", 
+                album: "《叶惠美》",
+                length: "04:30",
+                path: "music/晴天.mp3",
+                hot: '2'
+            },
+            {
+                name: "听妈妈的话", 
+                album: "依然范特西",
+                length: "04:23",
+                path: "music/听妈妈的话.mp3",
+                hot: '3'
+            },
+            {
+                name: "七里香", 
+                album: "《七里香》",
+                length: "04:58",
+                path: "music/七里香.mp3",
+                hot: '2'
+            },
+        ]
+    };
+    var i = 0;
+    for (i = 0; i < music_all.music_obj.length; i++)
+    {
+        $("#music_idx").append("<tr class='warning'><td Title='" + music_all.music_obj[i].name + "'><button id='btn_link_" + i + "' type='text' class='btn btn-link'>" + music_all.music_obj[i].name + "</button></td>" +
+                            "<td>" + music_all.music_obj[i].album + "</td>" +
+                            "<td style='text-align:center'>" + music_all.music_obj[i].length + "</td>" +
+                            "<td style='text-align:center'><img src='icons/signal_" + music_all.music_obj[i].hot + ".png' style='height:20px'></td>" +
+                            "<td><button type='text' onClick='play_music(this.value)'' value='" + music_all.music_obj[i].path +"' class='btn btn-success'>播放</button>" +
+                            "<button type='text' class='btn btn-primary'>下载</button></td></tr>");
+    }           
 });
 function play_music(value){
 	//alert(value);
