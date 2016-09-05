@@ -58,7 +58,9 @@ $(function(){
     var i = 0;
     for (i = 0; i < music_all.music_obj.length; i++)
     {
-        $("#music_idx").append("<tr class='warning'><td Title='" + music_all.music_obj[i].name + "'><button id='btn_link_" + i + "' type='text' class='btn btn-link'>" + music_all.music_obj[i].name + "</button></td>" +
+        $("#music_idx").append("<tr class='warning'><td Title='" + music_all.music_obj[i].name + "'><button id='btn_link_" + i + 
+        					"' type='text' class='btn btn-link' value='" + music_all.music_obj[i].path + 
+        					"'>" + music_all.music_obj[i].name + "</button></td>" +
                             "<td>" + music_all.music_obj[i].album + "</td>" +
                             "<td style='text-align:center'>" + music_all.music_obj[i].length + "</td>" +
                             "<td style='text-align:center'><img src='icons/signal_" + music_all.music_obj[i].hot + ".png' style='height:20px'></td>" +
@@ -122,13 +124,9 @@ Visualizer.prototype = {
         window.AudioContext = window.AudioContext || window.webkitAudioContext || window.mozAudioContext || window.msAudioContext;
         window.requestAnimationFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.msRequestAnimationFrame;
         window.cancelAnimationFrame = window.cancelAnimationFrame || window.webkitCancelAnimationFrame || window.mozCancelAnimationFrame || window.msCancelAnimationFrame;
-        try {
-            this.audioContext = new AudioContext();
-        } catch (e) {
-            this._updateInfo('!Your browser does not support AudioContext', false);
-            console.log(e);
-        }
+        
     },
+    
     _addEventListner: function() {
         var that = this,
         	audioInput = document.getElementsByClassName("btn btn-link"),
@@ -142,40 +140,17 @@ Visualizer.prototype = {
             that.fileName = this.value;
             //document.getElementById('fileWrapper').style.opacity = 1;
             that._updateInfo('Uploading', true);
+            if(that.audioContext)
+            	that.audioContext.close();
             //once the file is ready,start the visualizer
+            try {
+	            that.audioContext = new AudioContext();
+	        } catch (e) {
+	            that._updateInfo('!Your browser does not support AudioContext', false);
+	            console.log(e);
+	        }
             that._start();
         };
-        //listen the drag & drop
-        dropContainer.addEventListener("dragenter", function() {
-            document.getElementById('fileWrapper').style.opacity = 1;
-            that._updateInfo('Drop it on the page', true);
-        }, false);
-        dropContainer.addEventListener("dragover", function(e) {
-            e.stopPropagation();
-            e.preventDefault();
-            //set the drop mode
-            e.dataTransfer.dropEffect = 'copy';
-        }, false);
-        dropContainer.addEventListener("dragleave", function() {
-            document.getElementById('fileWrapper').style.opacity = 0.2;
-            that._updateInfo(that.info, false);
-        }, false);
-        dropContainer.addEventListener("drop", function(e) {
-            e.stopPropagation();
-            e.preventDefault();
-            if (that.audioContext===null) {return;};
-            document.getElementById('fileWrapper').style.opacity = 1;
-            that._updateInfo('Uploading', true);
-            //get the dropped file
-            that.file = e.dataTransfer.files[0];
-            if (that.status === 1) {
-                document.getElementById('fileWrapper').style.opacity = 1;
-                that.forceStop = true;
-            };
-            that.fileName = that.file.name;
-            //once the file is ready,start the visualizer
-            that._start();
-        }, false);
     },
     _loadSound: function(url) {
     	var that = this;
@@ -187,20 +162,28 @@ Visualizer.prototype = {
 	         that.music_buffer = request.response;
 	    }
 	    request.send();
+	    that._updateInfo('Upload End', true);
 	},
     _start: function() {
         //read and decode the file into audio array buffer 
         var that = this,
             file = this.file;
         that._loadSound(that.fileName);
-        //that._visualize(that.audioContext, that.music_buffer);
-        that.audioContext.decodeAudioData(that.music_buffer, function(buffer) {
-            that._updateInfo('Decode succussfully,start the visualizer', true);
-            that._visualize(that.audioContext, buffer);
-        }, function(e) {
-            that._updateInfo('!Fail to decode the file', false);
-            console.log(e);
-        });
+        if(that.music_buffer == null)
+        {
+        	that._updateInfo('解析失败，请重试', true);
+        }
+        else
+        {
+	        //that._visualize(that.audioContext, that.music_buffer);
+	        that.audioContext.decodeAudioData(that.music_buffer, function(buffer) {
+	            that._updateInfo('Decode succussfully,start the visualizer', true);
+	            that._visualize(that.audioContext, buffer);
+	        }, function(e) {
+	            that._updateInfo('!Fail to decode the file', false);
+	            console.log(e);
+	        });
+	    }
         //     fr = new FileReader();
         // fr.onload = function(e) {
         //     console.log(e.target.result);
