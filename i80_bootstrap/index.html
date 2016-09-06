@@ -9,6 +9,8 @@
     <meta content='' name='keywords'>
     <link href="../bootstrap/bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="Resource/stylesheets/i80.css" rel="stylesheet" type="text/css" />
+    <link href="Resource/fonts/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    
     <!-- <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" /> -->
     <link href="Resource/images/icon_i80.png" rel="icon" type="image/ico" />
     
@@ -18,17 +20,27 @@
     <form class="form-signin">
         <div class="row">
           <div class="col-lg-12">
-            <div class="login-head"></div>
-            <h>i80接收机</h>
+            <div class="login-head">
+              <i class='fa fa-user fa-5x fa-inverse icon-user'></i>
+            </div>
+            <div class="login-log">
+              i80接收机
+            </div>
           </div>
           <div class="col-lg-12">
-            <h2 class="form-signin-heading">Please sign in</h2>
-            <input type="text" class="input-block-level" placeholder="Email address">
-            <input type="password" class="input-block-level" placeholder="Password">
-            <label class="checkbox">
-              <input type="checkbox" value="remember-me"> Remember me
-            </label>
-            <button class="btn btn-large btn-primary" type="submit">Sign in</button>
+            <fieldset>
+              <legend class="form-signin-heading login-heading-font">请登录账号</legend> 
+              <div class="form-group">
+                <input class="form-control" type="text" class="input-block-level" placeholder="Email address">
+              </div>
+              <div class="form-group">
+              <input class="form-control" type="password" class="input-block-level" placeholder="Password">
+              </div>
+              <label class="checkbox login-ckeckbox">
+                <input type="checkbox" value="remember-me"> Remember me
+              </label>
+              <button class="btn btn-large btn-primary login-button" type="submit">Sign in</button>
+            </fieldset>
           </div>
         </div>
       </form>
