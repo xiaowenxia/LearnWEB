@@ -1,9 +1,4 @@
-var SATE_TRACE_DATA(sate_type, sate_snr, sate_L){
-    this.type = sate_type;
-    this.snr  = sate_snr;
-    this.L    = sate_L;
-}
-
+﻿
 var my_echarts=echarts.init(document.getElementById('main'));
 // 指定图表的配置项和数据
 var option = {
