@@ -176,8 +176,16 @@
 #tools-info .btn-group .btn .badge{
 	background: red;
 }
-#canvas_position {
-	margin: 10%;
-	width: 100%;
-	height: 100%;
+#canvas_satellite_track {
+	margin: 0 auto;
+	width: 1200px;
+	height: 600px;
+}
+#canvas_satellite_map {
+	margin: 0 auto;
+	width: 1200px;
+	height: 600px;
+}
+#tab_satellite_track .btn-group {
+	margin: 0 33%;
 }

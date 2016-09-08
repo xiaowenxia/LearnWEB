@@ -10,8 +10,9 @@
 
     <link href="Resource/stylesheets/receiver_status.css" rel="stylesheet" type="text/css" />
     <link href="Resource/stylesheets/main.css" rel="stylesheet" type="text/css" />
+    <link href="Resource/stylesheets/hover.min.css" rel="stylesheet" media="all">
     <link href="Resource/images/icon_i80.png" rel="icon" type="image/ico" />
-    <script src="Resource/javascripts/echarts.js" type="text/javascript"></script>
+    <script src="Resource/javascripts/echarts.min.js" type="text/javascript"></script>
   </head>
   <body class="main">
     <div class="container-fluid">
@@ -26,7 +27,7 @@
           <ul class="list-inline navbar-list"> 
               <li>
                 <div class="btn-group">
-                  <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
+                  <button type="button" class="btn btn-danger dropdown-toggle hvr-grow" data-toggle="dropdown">
                     <i class="fa fa-power"></i>
                     电源
                     <span class="caret"></span>
@@ -41,7 +42,7 @@
               </li> 
               <li>
                 <div class="btn-group">
-                  <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+                  <button type="button" class="btn btn-info dropdown-toggle hvr-grow" data-toggle="dropdown">
                     <i class="fa fa-power"></i>
                     主题
                     <span class="caret"></span>
@@ -54,11 +55,11 @@
                 </div>
               </li>
               <li>
-                <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">设置</button>
+                <button type="button" class="btn dropdown-toggle hvr-grow" data-toggle="dropdown">设置</button>
               </li>
               <li>
                 <div class="btn-group">
-                  <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+                  <button type="button" class="btn dropdown-toggle hvr-grow" data-toggle="dropdown">
                     <i class="fa fa-power"></i>
                     语言
                     <span class="caret"></span>
@@ -77,35 +78,35 @@
         <div class="col-xs-1" id="sidebar" >
           <i class='fa fa-align-justify fa-large' id='toggle'></i>
           <ul id='dock'>
-            <li class='active launcher'>
+            <li class='active launcher hvr-grow '>
               <i class='fa fa-dashboard'></i>
               <a href="#">接收机状态</a>
             </li>
-            <li class='launcher'>
+            <li class='launcher hvr-grow '>
               <i class='fa fa-file-text'></i>
               <a href="satellite.html">卫星数</a>
             </li>
-            <li class='launcher'>
+            <li class='launcher hvr-grow  '>
               <i class='fa fa-table'></i>
               <a href="tables.html">接收机设置</a>
             </li>
-            <li class='launcher'>
+            <li class='launcher hvr-grow '>
               <i class='fa fa-bookmark'></i>
               <a href='#'>数据管理</a>
             </li>
-            <li class='launcher'>
+            <li class='launcher hvr-grow '>
               <i class='fa fa-cloud'></i>
-              <a href='#'>IO设置</a>
+              <a href='#'>I/O接口设置</a>
             </li>
-            <li class='launcher'>
-              <i class='fa fa-bug'></i>
+            <li class='launcher hvr-grow '>
+              <i class='fa fa-cloud'></i>
               <a href='#'>wifi设置</a>
             </li>
-            <li class='launcher'>
+            <li class='launcher hvr-grow '>
               <i class='fa fa-bug'></i>
               <a href='#'>3G设置</a>
             </li>
-            <li class='launcher'>
+            <li class='launcher hvr-grow '>
               <i class='fa fa-bug'></i>
               <a href='#'>网络服务</a>
             </li>
@@ -144,16 +145,28 @@
                 <li class="active"><a href="#tab_status" data-toggle="tab"><strong>接收机状态</strong></a></li>
                 <li><a href="#tab_position" data-toggle="tab"><strong>当前位置</strong></a></li>
                 <li><a href="#tab_satellite_map" data-toggle="tab"><strong>星空图</strong></a></li>
+                <li><a href="#tab_satellite_track" data-toggle="tab"><strong>卫星跟踪图</strong></a></li>
               </ul>
               <div class="tab-content">
                 <div class="tab-pane fade in active" id="tab_status">
                 这是接收机状态
                 </div>
                 <div class="tab-pane fade" id="tab_position">
-                  <div id="canvas_position"></div>
+                这是当前位置
                 </div>
                 <div class="tab-pane fade" id="tab_satellite_map">
-                  <p>jMeter 是一款开源的测试软件。它是 100% 纯 Java 应用程序，用于负载和性能测试。</p>
+                  <div id="canvas_satellite_map"></div>
+                </div>
+                <div class="tab-pane fade" id="tab_satellite_track">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-success hvr-grow" id="sate_hidden_gps" value="G">GPS(G)</button>
+                    <button type="button" class="btn btn-success hvr-grow" id="sate_hidden_glo" value="R">GLONASS(R)</button>
+                    <button type="button" class="btn btn-success hvr-grow" id="sate_hidden_bds" value="C">BDS(C)</button>
+                    <button type="button" class="btn btn-success hvr-grow" id="sate_hidden_geo" value="E">GALLIEO(E)</button>
+                    <button type="button" class="btn btn-success hvr-grow" id="sate_hidden_sbas" value="S">SBAS(S)</button>
+                  </div>
+                  <div id="canvas_satellite_track"></div>
+                  
                 </div>
               </div>
             </div>
