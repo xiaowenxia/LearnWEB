@@ -13,6 +13,8 @@
     <link href="Resource/stylesheets/hover.min.css" rel="stylesheet" media="all">
     <link href="Resource/images/icon_i80.png" rel="icon" type="image/ico" />
     <script src="Resource/javascripts/echarts.min.js" type="text/javascript"></script>
+    <script src="Resource/javascripts/world.js" type="text/javascript"></script>
+    <script src="Resource/javascripts/china.js" type="text/javascript"></script>
   </head>
   <body class="main">
     <div class="container-fluid">
@@ -140,35 +142,34 @@
             </div>
           </div> -->
           <div class="row">
-            <div class="col-xs-12">
-              <ul class="nav nav-tabs" id="tab_receiver">
-                <li class="active"><a href="#tab_status" data-toggle="tab"><strong>接收机状态</strong></a></li>
-                <li><a href="#tab_position" data-toggle="tab"><strong>当前位置</strong></a></li>
-                <li><a href="#tab_satellite_map" data-toggle="tab"><strong>星空图</strong></a></li>
-                <li><a href="#tab_satellite_track" data-toggle="tab"><strong>卫星跟踪图</strong></a></li>
-              </ul>
-              <div class="tab-content">
-                <div class="tab-pane fade in active" id="tab_status">
-                这是接收机状态
+            <div class="col-xs-12" id="content_status">
+              <input id="tab_status" type="radio" name="tabs" checked>
+              <label class="hvr-grow" for="tab_status">接收机状态</label>
+              <input id="tab_position" type="radio" name="tabs">
+              <label class="hvr-grow" for="tab_position">当前位置</label>
+              <input id="tab_satellite_map" type="radio" name="tabs">
+              <label class="hvr-grow" for="tab_satellite_map">星空图</label>
+              <input id="tab_satellite_track" type="radio" name="tabs">
+              <label class="hvr-grow" for="tab_satellite_track">卫星跟踪图</label>
+              <section id="tab_content_status">
+                <p>这是接收机状态</p>
+              </section>
+              <section id="tab_content_position">
+                <div id="canvas_position"></div>
+              </section>
+              <section id="tab_content_map">
+                <div id="canvas_satellite_map"></div>
+              </section>
+              <section id="tab_content_track">
+                 <div class="btn-group">
+                  <button type="button" class="btn btn-success hvr-grow" id="sate_hidden_gps" value="G">GPS(G)</button>
+                  <button type="button" class="btn btn-success hvr-grow" id="sate_hidden_glo" value="R">GLONASS(R)</button>
+                  <button type="button" class="btn btn-success hvr-grow" id="sate_hidden_bds" value="C">BDS(C)</button>
+                  <button type="button" class="btn btn-success hvr-grow" id="sate_hidden_geo" value="E">GALLIEO(E)</button>
+                  <button type="button" class="btn btn-success hvr-grow" id="sate_hidden_sbas" value="S">SBAS(S)</button>
                 </div>
-                <div class="tab-pane fade" id="tab_position">
-                这是当前位置
-                </div>
-                <div class="tab-pane fade" id="tab_satellite_map">
-                  <div id="canvas_satellite_map"></div>
-                </div>
-                <div class="tab-pane fade" id="tab_satellite_track">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-success hvr-grow" id="sate_hidden_gps" value="G">GPS(G)</button>
-                    <button type="button" class="btn btn-success hvr-grow" id="sate_hidden_glo" value="R">GLONASS(R)</button>
-                    <button type="button" class="btn btn-success hvr-grow" id="sate_hidden_bds" value="C">BDS(C)</button>
-                    <button type="button" class="btn btn-success hvr-grow" id="sate_hidden_geo" value="E">GALLIEO(E)</button>
-                    <button type="button" class="btn btn-success hvr-grow" id="sate_hidden_sbas" value="S">SBAS(S)</button>
-                  </div>
-                  <div id="canvas_satellite_track"></div>
-                  
-                </div>
-              </div>
+                <div id="canvas_satellite_track"></div>
+              </section>
             </div>
           </div>
         </div>

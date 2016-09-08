@@ -176,16 +176,88 @@
 #tools-info .btn-group .btn .badge{
 	background: red;
 }
+#canvas_position {
+	width: 1400px;
+	height: 800px;
+}
+
 #canvas_satellite_track {
 	margin: 0 auto;
 	width: 1200px;
 	height: 600px;
+	
 }
 #canvas_satellite_map {
 	margin: 0 auto;
-	width: 1200px;
+	width: 600px;
 	height: 600px;
 }
-#tab_satellite_track .btn-group {
+#canvas_satellite_map canvas {
+	border-radius: 24px;
+	background-color: #5BC0DE;
+}
+#tab_content_track .btn-group {
 	margin: 0 33%;
+}
+
+section {
+  display: none;
+  padding: 20px 0 0;
+  border-top: 1px solid #ddd;
+}
+
+input {
+  display: none;
+}
+
+label {
+  display: inline-block;
+  margin: 0 0 -1px;
+  padding: 15px 25px;
+  font-weight: 600;
+  text-align: center;
+  color: #bbb;
+  border: 1px solid transparent;
+}
+
+label:before {
+  font-family: fontawesome;
+  font-weight: normal;
+  margin-right: 10px;
+}
+
+label[for*='status']:before {
+  content: '\f1cb';
+}
+
+label[for*='position']:before {
+  content: '\f17d';
+}
+
+label[for*='map']:before {
+  content: '\f16b';
+}
+
+label[for*='track']:before {
+  content: '\f1a9';
+}
+
+label:hover {
+  color: white;
+  cursor: pointer;
+  background-color: #32B16C;
+}
+
+input:checked + label {
+  color: #555;
+  border: 1px solid #ddd;
+  border-top: 2px solid orange;
+  border-bottom: 1px solid #fff;
+}
+
+#tab_status:checked ~ #tab_content_status,
+#tab_position:checked ~ #tab_content_position,
+#tab_satellite_map:checked ~ #tab_content_map,
+#tab_satellite_track:checked ~ #tab_content_track {
+  display: block;
 }
