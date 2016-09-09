@@ -19,74 +19,69 @@
   <body class="main">
     <div class="container-fluid">
       <div class="row show-grid">
-        <div class="col-md-3">
-          <a class='navbar' href='#'>
+        <div class="col-md-3" id="nav_logo">
+          <a class='navbar hvr-grow' href='#'>
             <i class="fa fa-navicon fa-1x"></i>
             振兴中华 测绘天下
           </a>
         </div>
-        <div class="col-md-3 col-md-offset-6">
-          <ul class="list-inline navbar-list"> 
-              <li>
-                <div class="btn-group">
-                  <button type="button" class="btn btn-danger dropdown-toggle hvr-grow" data-toggle="dropdown">
-                    <i class="fa fa-power"></i>
-                    电源
-                    <span class="caret"></span>
-                  </button>
-                  <ul class="dropdown-menu navbar-dropdown" role="menu">
-                    <li><a href="#">重启</a></li>
-                    <li><a href="#">关机</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#">固件升级</a></li>
-                  </ul>
-                </div>
-              </li> 
-              <li>
-                <div class="btn-group">
-                  <button type="button" class="btn btn-info dropdown-toggle hvr-grow" data-toggle="dropdown">
-                    <i class="fa fa-power"></i>
-                    主题
-                    <span class="caret"></span>
-                  </button>
-                  <ul class="dropdown-menu navbar-dropdown" role="menu">
-                    <li><a href="#">bootswatch-Cerulean</a></li>
-                    <li><a href="#">bootswatch-Cosmo</a></li>
-                    <li><a href="#">bootswatch-Darkly</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li>
-                <button type="button" class="btn dropdown-toggle hvr-grow" data-toggle="dropdown">设置</button>
-              </li>
-              <li>
-                <div class="btn-group">
-                  <button type="button" class="btn dropdown-toggle hvr-grow" data-toggle="dropdown">
-                    <i class="fa fa-power"></i>
-                    语言
-                    <span class="caret"></span>
-                  </button>
-                  <ul class="dropdown-menu navbar-dropdown" role="menu">
-                    <li><a href="#">中文</a></li>
-                    <li><a href="#">English</a></li>
-                    <li><a href="#">русский</a></li>
-                  </ul>
-                </div>
-              </li>
-          </ul> 
+        <div class="col-md-3 col-md-offset-6" id="nav_option">
+          <div class="btn-group">
+            <div class="btn-group">
+              <button type="button" class="btn btn-danger dropdown-toggle hvr-grow" data-toggle="dropdown">
+                <i class="fa fa-power-off"></i>
+                电源
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu navbar-dropdown" role="menu">
+                <li><a href="#">重启</a></li>
+                <li><a href="#">关机</a></li>
+                <li class="divider"></li>
+                <li><a href="#">固件升级</a></li>
+              </ul>
+            </div>
+            <div class="btn-group">
+              <button type="button" class="btn btn-info dropdown-toggle hvr-grow" data-toggle="dropdown">
+                <i class="fa fa-file"></i>
+                主题
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu navbar-dropdown" role="menu">
+                <li><a href="#">bootswatch-Cerulean</a></li>
+                <li><a href="#">bootswatch-Cosmo</a></li>
+                <li><a href="#">bootswatch-Darkly</a></li>
+              </ul>
+            </div>
+            <button type="button" class="btn btn-info dropdown-toggle hvr-grow" id="nav_option_settting">
+              <i class="fa fa-gear"></i>
+              设置
+            </button>
+            <div class="btn-group">
+              <button type="button" class="btn btn-info dropdown-toggle hvr-grow" data-toggle="dropdown">
+                <i class="fa fa-globe"></i>
+                语言
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu navbar-dropdown" role="menu">
+                <li><a href="#">中文</a></li>
+                <li><a href="#">English</a></li>
+                <li><a href="#">русский</a></li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
       <div class="row show-grid">
         <div class="col-xs-1" id="sidebar" >
-          <i class='fa fa-align-justify fa-large' id='toggle'></i>
+          <!-- <i class='fa fa-align-justify fa-large' id='toggle'></i> -->
           <ul id='dock'>
-            <li class='active launcher hvr-grow '>
+            <li class='active launcher hvr-grow'>
               <i class='fa fa-dashboard'></i>
               <a href="#">接收机状态</a>
             </li>
             <li class='launcher hvr-grow '>
               <i class='fa fa-file-text'></i>
-              <a href="satellite.html">卫星数</a>
+              <a href="satellite.html">卫星</a>
             </li>
             <li class='launcher hvr-grow  '>
               <i class='fa fa-table'></i>
@@ -111,6 +106,14 @@
             <li class='launcher hvr-grow '>
               <i class='fa fa-bug'></i>
               <a href='#'>网络服务</a>
+            </li>
+            <li class='launcher hvr-grow '>
+              <i class='fa fa-bug'></i>
+              <a href='#'>固件</a>
+            </li>
+            <li class='launcher hvr-grow '>
+              <i class='fa fa-bug'></i>
+              <a href='#'>固件</a>
             </li>
           </ul>
         </div>
@@ -144,15 +147,35 @@
           <div class="row">
             <div class="col-xs-12" id="content_status">
               <input id="tab_status" type="radio" name="tabs" checked>
-              <label class="hvr-grow" for="tab_status">接收机状态</label>
+              <label class="hvr-grow" for="tab_status">
+                <a class="fa fa-user fa-inverse"></a>
+                接收机状态
+              </label>
               <input id="tab_position" type="radio" name="tabs">
-              <label class="hvr-grow" for="tab_position">当前位置</label>
+              <label class="hvr-grow" for="tab_position">
+                <a class="fa fa-map-marker fa-inverse"></a>
+                地图
+              </label>
               <input id="tab_satellite_map" type="radio" name="tabs">
-              <label class="hvr-grow" for="tab_satellite_map">星空图</label>
+              <label class="hvr-grow" for="tab_satellite_map">
+                <a class="fa fa-compass fa-inverse"></a>
+                星空图
+              </label>
               <input id="tab_satellite_track" type="radio" name="tabs">
-              <label class="hvr-grow" for="tab_satellite_track">卫星跟踪图</label>
+              <label class="hvr-grow" for="tab_satellite_track">
+                <a class="fa fa-dashboard fa-inverse"></a>
+                卫星跟踪图
+              </label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12" id="content_section">
               <section id="tab_content_status">
-                <p>这是接收机状态</p>
+                <div class="row">
+                  <div class="col-xs-4">
+                    
+                  </div>
+                </div>
               </section>
               <section id="tab_content_position">
                 <div id="canvas_position"></div>

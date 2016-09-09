@@ -363,7 +363,7 @@ option_position = {
         roam: true,
         itemStyle: {
             normal: {
-                areaColor: '#808182',
+                areaColor: 'yellow',
                 borderColor: '#404a59'
             },
             emphasis: {
@@ -407,7 +407,31 @@ $(function(){
     $("#tab_content_track .btn-group button").click(function(){
         data_satellite_track.remove_member(this.value);
     });
-
+    $("#tab_content_status").css('display','block');
+    $("#tab_status").click(function(){
+        $("#tab_content_status").css('display','block');
+        $("#tab_content_position").css('display','none');
+        $("#tab_content_map").css('display','none');
+        $("#tab_content_track").css('display','none');
+    });
+    $("#tab_position").click(function(){
+        $("#tab_content_status").css('display','none');
+        $("#tab_content_position").css('display','block');
+        $("#tab_content_map").css('display','none');
+        $("#tab_content_track").css('display','none');
+    });
+    $("#tab_satellite_map").click(function(){
+        $("#tab_content_status").css('display','none');
+        $("#tab_content_position").css('display','none');
+        $("#tab_content_map").css('display','block');
+        $("#tab_content_track").css('display','none');
+    });
+    $("#tab_satellite_track").click(function(){
+        $("#tab_content_status").css('display','none');
+        $("#tab_content_position").css('display','none');
+        $("#tab_content_map").css('display','none');
+        $("#tab_content_track").css('display','block');
+    });
     echarts_position = echarts.init(document.getElementById("canvas_position"));
     echarts_position.setOption(option_position);
 
