@@ -1,10 +1,12 @@
 var echarts_satellite_track;
 var echarts_position;
 var echarts_satellite_map;
+var echarts_storage;
 
 var option_satellite_track;
 var option_position;
 var option_satellite_map;
+var option_storage;
 
 var data_satellite_track;
 
@@ -26,6 +28,12 @@ data_satellite_track = {
                 array_item.push(this.sate[i].snr_L5);
         }
         return array_item;
+    },
+    storage: {
+        storage_inside: 2.87,
+        storage_extern: 0,
+        battery_inside: 80,
+        battery_extern: 100
     },
     remove_member: function(member){
         var array_member = {
@@ -403,33 +411,146 @@ option_position = {
     ]
 };
 
+option_storage = {
+    tooltip : {
+        formatter: "{a} <br/>{b} : {c}%"
+    },
+    toolbox: {
+        feature: {
+            restore: {},
+            saveAsImage: {}
+        }
+    },
+    series: [
+        {
+            name: '内部存储',
+            type: 'gauge',
+            detail: {formatter:'{value}%'},
+            center : ['50%', '20%'],    // 默认全局居中
+            radius: '50%',
+            startAngle: 180,
+            endAngle:0,
+            data: [{value: data_satellite_track.storage.storage_inside, name: '内部存储'}]
+        },
+        {
+            name: '电池电量',
+            type: 'gauge',
+            center : ['50%', '50%'],    // 默认全局居中
+            detail: {formatter:'{value}%'},
+            startAngle: 180,
+            endAngle:0,
+            data: [{value: data_satellite_track.storage.battery_inside, name: '电池电量'}]
+        },
+        {
+            name: '外部存储',
+            type: 'gauge',
+            center : ['50%', '80%'],    // 默认全局居中
+            radius: '50%',
+            detail: {formatter:'{value}%'},
+            startAngle: 180,
+            endAngle:0,
+            data: [{value: data_satellite_track.storage.storage_extern, name: '外部存储'}]
+        }
+    ]
+};
+
+var status_sate_used_detail_display = 0;
+var status_sate_track_detail_display = 0;
+var status_dop_detail_display = 0;
+function status_mouse_action(){
+    $(".status-sate-used").mouseover(function(){
+        $(".status-sate-track-detail").css('display','none');
+        $(".status-dop-detail").css('display','none');
+        $(".status-sate-used-detail").css('display','block');
+    });
+    $(".status-sate-used").mouseout(function(){
+        if(status_sate_used_detail_display == 0)
+            $(".status-sate-used-detail").css('display','none');
+    });
+    $(".status-sate-used").click(function(){
+        if(status_sate_used_detail_display == 0)
+        {
+            $(".status-sate-track-detail").css('display','none');
+            $(".status-dop-detail").css('display','none');
+            $(".status-sate-used-detail").css('display','block');
+            status_sate_used_detail_display = 1;
+        }
+        else{
+            $(".status-sate-used-detail").css('display','none');
+            status_sate_used_detail_display = 0;
+        }
+    });
+    $(".status-sate-track").mouseover(function(){
+        $(".status-sate-used-detail").css('display','none');
+        $(".status-dop-detail").css('display','none');
+        $(".status-sate-track-detail").css('display','block');
+    });
+
+    $(".status-sate-track").mouseout(function(){
+        if(status_sate_track_detail_display == 0)
+            $(".status-sate-track-detail").css('display','none');
+    });
+    $(".status-sate-track").click(function(){
+        if(status_sate_track_detail_display == 0)
+        {
+            $(".status-sate-used-detail").css('display','none');
+            $(".status-dop-detail").css('display','none');
+            $(".status-sate-track-detail").css('display','block');
+            status_sate_track_detail_display = 1;
+        }
+        else{
+            $(".status-sate-track-detail").css('display','none');
+            status_sate_track_detail_display = 0;
+        }
+    });
+
+    $(".status-dop").mouseover(function(){
+        $(".status-sate-used-detail").css('display','none');
+        $(".status-sate-track-detail").css('display','none');
+        $(".status-dop-detail").css('display','block');
+    });
+    $(".status-dop").mouseout(function(){
+        if(status_dop_detail_display == 0)
+            $(".status-dop-detail").css('display','none');
+    });
+    $(".status-dop").click(function(){
+        if(status_dop_detail_display == 0)
+        {
+            $(".status-sate-used-detail").css('display','none');
+            $(".status-sate-track-detail").css('display','none');
+            $(".status-dop-detail").css('display','block');
+            status_dop_detail_display = 1;
+        }
+        else{
+            $(".status-dop-detail").css('display','none');
+            status_dop_detail_display = 0;
+        }
+    });
+}
 $(function(){
     $("#tab_content_track .btn-group button").click(function(){
         data_satellite_track.remove_member(this.value);
     });
+    status_mouse_action();
     $("#tab_content_status").css('display','block');
     $("#tab_status").click(function(){
         $("#tab_content_status").css('display','block');
         $("#tab_content_position").css('display','none');
-        $("#tab_content_map").css('display','none');
         $("#tab_content_track").css('display','none');
     });
     $("#tab_position").click(function(){
         $("#tab_content_status").css('display','none');
         $("#tab_content_position").css('display','block');
-        $("#tab_content_map").css('display','none');
         $("#tab_content_track").css('display','none');
     });
     $("#tab_satellite_map").click(function(){
         $("#tab_content_status").css('display','none');
         $("#tab_content_position").css('display','none');
-        $("#tab_content_map").css('display','block');
         $("#tab_content_track").css('display','none');
     });
     $("#tab_satellite_track").click(function(){
         $("#tab_content_status").css('display','none');
         $("#tab_content_position").css('display','none');
-        $("#tab_content_map").css('display','none');
         $("#tab_content_track").css('display','block');
     });
     echarts_position = echarts.init(document.getElementById("canvas_position"));
@@ -441,4 +562,7 @@ $(function(){
     echarts_satellite_map = echarts.init(document.getElementById('canvas_satellite_map'));
     option_satellite_map.update_data(data_satellite_track);
     echarts_satellite_map.setOption(option_satellite_map);
+
+    echarts_storage = echarts.init(document.getElementById('canvas_storage'));
+    echarts_storage.setOption(option_storage, true);
 });

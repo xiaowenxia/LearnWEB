@@ -73,7 +73,6 @@
       </div>
       <div class="row show-grid">
         <div class="col-xs-1" id="sidebar" >
-          <!-- <i class='fa fa-align-justify fa-large' id='toggle'></i> -->
           <ul id='dock'>
             <li class='active launcher hvr-grow'>
               <i class='fa fa-dashboard'></i>
@@ -118,51 +117,26 @@
           </ul>
         </div>
         <div class="col-xs-11" id="content">
-          <!-- <div class="row" id="tools">
-            <div class="col-xs-8" id="tools-breadcrumbs">
-              <ul class='breadcrumb' id='breadcrumb'>
-                <li class='title'>接收机状态</li>
-                <li><a href="#">当前位置</a></li>
-                <li class='active'><a href="#">星空图</a></li>
-              </ul>
-            </div>
-            <div class="col-xs-4" id="tools-info">
-              <div class='btn-group'>
-                <a class='btn' data-toggle='toolbar-tooltip' href='#' title='Building'>
-                  <i class='fa fa-building fa-inverse'></i>
-                </a>
-                <a class='btn' data-toggle='toolbar-tooltip' href='#' title='Laptop'>
-                  <i class='fa fa-laptop fa-inverse'></i>
-                </a>
-                <a class='btn' data-toggle='toolbar-tooltip' href='#' title='Calendar'>
-                  <i class='fa fa-calendar fa-inverse'></i>
-                  <span class='badge'>3</span>
-                </a>
-                <a class='btn' data-toggle='toolbar-tooltip' href='#' title='Lemon'>
-                  <i class='fa fa-lemon-o fa-inverse'></i>
-                </a>
-              </div>
-            </div>
-          </div> -->
+          
           <div class="row">
             <div class="col-xs-12" id="content_status">
               <input id="tab_status" type="radio" name="tabs" checked>
-              <label class="hvr-grow" for="tab_status">
+              <label class="hvr-float-shadow" for="tab_status">
                 <a class="fa fa-user fa-inverse"></a>
                 接收机状态
               </label>
               <input id="tab_position" type="radio" name="tabs">
-              <label class="hvr-grow" for="tab_position">
+              <label class="hvr-float-shadow" for="tab_position">
                 <a class="fa fa-map-marker fa-inverse"></a>
                 地图
               </label>
               <input id="tab_satellite_map" type="radio" name="tabs">
-              <label class="hvr-grow" for="tab_satellite_map">
+              <!-- <label class="hvr-float-shadow" for="tab_satellite_map">
                 <a class="fa fa-compass fa-inverse"></a>
                 星空图
-              </label>
+              </label> -->
               <input id="tab_satellite_track" type="radio" name="tabs">
-              <label class="hvr-grow" for="tab_satellite_track">
+              <label class="hvr-float-shadow" for="tab_satellite_track">
                 <a class="fa fa-dashboard fa-inverse"></a>
                 卫星跟踪图
               </label>
@@ -172,16 +146,193 @@
             <div class="col-xs-12" id="content_section">
               <section id="tab_content_status">
                 <div class="row">
-                  <div class="col-xs-4">
+                  <div class="col-sm-3 status-position">
+                    <ul class="list-group">
+                      <li class="list-group-item">
+                        <i class="fa fa-map-marker"></i>
+                        位置
+                      </li>
+                      <li class="list-group-item">
+                        <div class="row" id="setting_lon">
+                          <div class="col-sm-3">经度</div>
+                          <div class="col-sm-9">31.999(北纬)</div>
+                        </div>
+                      </li>
+                      <li class="list-group-item">
+                        <div class="row" id="setting_lat">
+                          <div class="col-sm-3">纬度</div>
+                          <div class="col-sm-9">121.17(东经)</div>
+                        </div>
+                      </li>
+                      <li class="list-group-item">
+                        <div class="row" id="setting_hight">
+                          <div class="col-sm-3">高度</div>
+                          <div class="col-sm-9">31.754(m)</div>
+                        </div>
+                      </li>
+                      <li class="list-group-item">
+                        <div class="row" id="setting_status">
+                          <div class="col-sm-3">解算状态</div>
+                          <div class="col-sm-9">单点</div>
+                        </div>
+                      </li>
+                    </ul>
+                    <ul class="list-group">
+                      <li class="list-group-item">
+                        <i class="fa fa-clock-o"></i>
+                        时钟
+                      </li>
+                      <li class="list-group-item">
+                        <div class="row" id="setting_lon">
+                          <div class="col-sm-3">周</div>
+                          <div class="col-sm-9">1913</div>
+                        </div>
+                      </li>
+                      <li class="list-group-item">
+                        <div class="row" id="setting_lat">
+                          <div class="col-sm-3">秒</div>
+                          <div class="col-sm-9">356765</div>
+                        </div>
+                      </li>
+                  </div>
+                  <div class="col-sm-3 status-sate">
+                    <div class=" hvr-bob status-sate-used ">
+                      <span>使用的卫星</span><br>
+                      <strong>32</strong>
+                      <span>颗</span>
+                    </div>
+                    <div class="hvr-bob status-sate-track">
+                      <span>跟踪的卫星</span><br>
+                      <strong>34</strong>
+                      <span>颗</span>
+                    </div>
+                    <div class="hvr-bob status-dop">
+                      <strong>DOP</strong>
+                      <span>值</span>
+                    </div>
                     
                   </div>
+                  <div class="col-sm-3 status-sate-used-detail">
+                    <ul class="list-group">
+                      <li class="list-group-item">
+                        使用的卫星：32颗
+                      </li>
+                      <li class="list-group-item">
+                        <div class="row" id="setting_lon">
+                          <div class="col-sm-3">GPS</div>
+                          <div class="col-sm-9">1,3,5,7,8,11,17,19,22,28,30</div>
+                        </div>
+                      </li>
+                      <li class="list-group-item">
+                        <div class="row" id="setting_lat">
+                          <div class="col-sm-3">GLONASS</div>
+                          <div class="col-sm-9">1,7,8,13,14,23,24,17</div>
+                        </div>
+                      </li>
+                      <li class="list-group-item">
+                        <div class="row" id="setting_hight">
+                          <div class="col-sm-3">BDS</div>
+                          <div class="col-sm-9">1,2,3,4,7,8,12,10,15</div>
+                        </div>
+                      </li>
+                      <li class="list-group-item">
+                        <div class="row" id="setting_status">
+                          <div class="col-sm-3">GALILEO</div>
+                          <div class="col-sm-9">11,12,19,24</div>
+                        </div>
+                      </li>
+                      <li class="list-group-item">
+                        <div class="row" id="setting_status">
+                          <div class="col-sm-3">SBAS</div>
+                          <div class="col-sm-9"></div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="col-sm-3 status-sate-track-detail">
+                  <ul class="list-group">
+                      <li class="list-group-item">
+                        跟踪的卫星：34颗
+                      </li>
+                      <li class="list-group-item">
+                        <div class="row" id="setting_lon">
+                          <div class="col-sm-3">GPS</div>
+                          <div class="col-sm-9">1,3,5,7,8,11,17,19,22,28,30</div>
+                        </div>
+                      </li>
+                      <li class="list-group-item">
+                        <div class="row" id="setting_lat">
+                          <div class="col-sm-3">GLONASS</div>
+                          <div class="col-sm-9">1,7,8,13,14,23,24,17</div>
+                        </div>
+                      </li>
+                      <li class="list-group-item">
+                        <div class="row" id="setting_hight">
+                          <div class="col-sm-3">BDS</div>
+                          <div class="col-sm-9">1,2,3,4,7,8,12,10,15</div>
+                        </div>
+                      </li>
+                      <li class="list-group-item">
+                        <div class="row" id="setting_status">
+                          <div class="col-sm-3">GALILEO</div>
+                          <div class="col-sm-9">11,12,19,24</div>
+                        </div>
+                      </li>
+                      <li class="list-group-item">
+                        <div class="row" id="setting_status">
+                          <div class="col-sm-3">SBAS</div>
+                          <div class="col-sm-9"></div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="col-sm-3 status-dop-detail">
+                    <ul class="list-group">
+                      <li class="list-group-item">
+                        DOP值
+                      </li>
+                      <li class="list-group-item">
+                        <div class="row" id="setting_lon">
+                          <div class="col-sm-3">PDOP</div>
+                          <div class="col-sm-9">0.0542345</div>
+                        </div>
+                      </li>
+                      <li class="list-group-item">
+                        <div class="row" id="setting_lat">
+                          <div class="col-sm-3">HDOP</div>
+                          <div class="col-sm-9">1.0542345</div>
+                        </div>
+                      </li>
+                      <li class="list-group-item">
+                        <div class="row" id="setting_hight">
+                          <div class="col-sm-3">VDOP</div>
+                          <div class="col-sm-9">1.0542345</div>
+                        </div>
+                      </li>
+                      <li class="list-group-item">
+                        <div class="row" id="setting_status">
+                          <div class="col-sm-3">TDOP</div>
+                          <div class="col-sm-9">1.0542345</div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div class="col-sm-3 status-map">
+                    <div id="canvas_satellite_map"></div>
+                  </div>
+
+                  <div class="col-sm-3 col-sm-offset-2 status-storage">
+                    <div id="canvas_storage"></div>
+                  </div>
+                  <!--  -->
                 </div>
               </section>
               <section id="tab_content_position">
                 <div id="canvas_position"></div>
               </section>
               <section id="tab_content_map">
-                <div id="canvas_satellite_map"></div>
+                
               </section>
               <section id="tab_content_track">
                  <div class="btn-group">
@@ -205,7 +356,6 @@
     <!-- Javascripts -->
     <script src="../bootstrap/bootstrap-3.3.5-dist/js/jquery.min.js" type="text/javascript"></script>
     <script src="../bootstrap/bootstrap-3.3.5-dist/js/bootstrap.min.js" type="text/javascript"></script>
-    
     <script src="Resource/javascripts/receiver_status.js" type="text/javascript"></script>
     <!-- Google Analytics -->
   </body>
