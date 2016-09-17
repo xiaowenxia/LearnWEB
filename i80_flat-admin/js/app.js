@@ -24,12 +24,6 @@ $(function() {
 });
 
 $(function() {
-  return $('.datatable').DataTable({
-    "dom": '<"top"fl<"clear">>rt<"bottom"ip<"clear">>'
-  });
-});
-
-$(function() {
   return $(".side-menu .nav .dropdown").on('show.bs.collapse', function() {
     return $(".side-menu .nav .dropdown .collapse").collapse('hide');
   });

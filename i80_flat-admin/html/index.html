@@ -38,9 +38,6 @@
                             <i class="fa fa-th icon"></i>
                         </button>
                     </div>
-                    <button class="nav navbar-nav">
-                    <i class="fa fa-clock-o"></i>ffdsafd
-                    </button>
                     <ul class="nav navbar-nav navbar-right">
 						<li class="dropdown danger">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-power-off"></i> 电源<span class="caret"></span></a>
@@ -90,6 +87,24 @@
                                 <a href="index.html">
                                     <span class="icon fa fa-tachometer"></span><span class="title">接收机状态</span>
                                 </a>
+                            </li>
+                            <li class="panel panel-default dropdown">
+                                <a data-toggle="collapse" href="#dropdown-element">
+                                    <span class="icon fa fa-map-marker"></span><span class="title">卫星</span>
+                                </a>
+                                <!-- Dropdown level 1 -->
+                                <div id="dropdown-element" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <ul class="nav navbar-nav">
+                                            <li><a href="map/map_local.html">卫星跟踪表</a>
+                                            </li>
+                                            <li><a href="map/map_baidu.html">卫星设置</a>
+                                            </li>
+                                            <li><a href="map/map_google.html">谷歌地图</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </li>
                             <li class="panel panel-default dropdown">
                                 <a data-toggle="collapse" href="#dropdown-element">
@@ -312,11 +327,11 @@
 	                                    	<div id="canvas_satellite_track" style="width:100%;height:500%"></div>
 	                                    </div>
 	                                    <div class="btn-group card-body half-padding" id="sate_hidden" style="margin-left:23%; padding:0">
-											<button type="button" class="btn btn-success" value="G">GPS(G)</button>
-											<button type="button" class="btn btn-success" value="R">GLONASS(R)</button>
-											<button type="button" class="btn btn-success" value="C">BDS(C)</button>
-											<button type="button" class="btn btn-success" value="E">GALLIEO(E)</button>
-											<button type="button" class="btn btn-success" value="S">SBAS(S)</button>
+											<button type="button" class="btn btn-success" value="GPS">GPS(G)</button>
+											<button type="button" class="btn btn-success" value="GLONASS">GLONASS(R)</button>
+											<button type="button" class="btn btn-success" value="BDS">BDS(C)</button>
+											<button type="button" class="btn btn-success" value="GALIIEO">GALIIEO(E)</button>
+											<button type="button" class="btn btn-success" value="SBAS">SBAS(S)</button>
 						                </div>
 	                                </div>
                                 </div>
@@ -334,6 +349,47 @@
                                             <div class="clear-both"></div>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="card">
+                                <div class="card-header">
+
+                                    <div class="card-title">
+                                    <div class="title">Table</div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <table class="datatable table table-striped" cellspacing="0" width="100%">
+                                        <thead>
+                                            <tr>
+                                                <th>卫星编号</th>
+                                                <th>类型</th>
+                                                <th>高度角</th>
+                                                <th>方位角</th>
+                                                <th>L1/B1/E1信噪比</th>
+                                                <th>L2/B2/E2信噪比</th>
+                                                <th>L3/B5/E3信噪比</th>
+                                                <th>是否使用</th>
+                                            </tr>
+                                        </thead>
+                                        
+                                        <tfoot>
+                                            <tr>
+                                                <th>卫星编号</th>
+                                                <th>类型</th>
+                                                <th>高度角</th>
+                                                <th>方位角</th>
+                                                <th>L1/B1/E1信噪比</th>
+                                                <th>L2/B2/E2信噪比</th>
+                                                <th>L3/B5/E3信噪比</th>
+                                                <th>是否使用</th>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
                                 </div>
                             </div>
                         </div>
@@ -362,6 +418,7 @@
             <!-- Javascript -->
             <script type="text/javascript" src="../js/app.js"></script>
             <script type="text/javascript" src="../js/index.js"></script>
+            <script type="text/javascript" src="../js/satellite_table.js"></script>
 </body>
 
 </html>
