@@ -49,3 +49,30 @@ body {
     display:-webkit-inline-flex;
     display:inline-flex;
 }
+#sate_hidden {/* 
+    margin-left:20%;
+    margin-right:20%; */
+    padding:0;
+}
+#satellite_track_table {
+    text-align: center;
+}
+#sate_checkbox {
+    text-align: center;
+    font-size: 20px;
+}
+#sate_checkbox .col-sm-2 {
+    margin-bottom: 10px;
+}
+#sate_checkbox .bootstrap-switch-handle-on {
+    background-color: green;
+}
+#sate_checkbox .bootstrap-switch-handle-off {
+    background-color: #f0ad4e;
+}
+/* #sate_checkbox .bootstrap-switch-label {
+    background-color: #00b8ff;
+} */
+/* .flat-blue .table.table-striped > tbody > tr:nth-of-type(odd){
+    background-color: #98d3fb;
+} */

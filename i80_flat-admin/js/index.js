@@ -127,91 +127,104 @@ data_satellite.sate.push(new satellite_info_create("SBAS","21",5.4,168,54,28,32)
 data_satellite.sate.push(new satellite_info_create("SBAS","22",3.9,187,47,25,40));
 
 option_satellite_track = {
-    update_data: function(sate_data){
-        this.xAxis[0].data = sate_data.get_item("name");
-        this.series[0].data = sate_data.get_item("snr_L1");
-        this.series[1].data = sate_data.get_item("snr_L2");
-        this.series[2].data = sate_data.get_item("snr_L5");
-    },
-    title: {
-        text: '卫星跟踪图'
-    },
-    tooltip: {
-        trigger: 'axis',
-        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
-            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
-        }
-    },
-    legend: [
+    
+    baseOption:{
+        update_data: function(sate_data){
+            this.xAxis[0].data = sate_data.get_item("name");
+            this.series[0].data = sate_data.get_item("snr_L1");
+            this.series[1].data = sate_data.get_item("snr_L2");
+            this.series[2].data = sate_data.get_item("snr_L5");
+        },
+        title: {
+            text: '卫星跟踪图'
+        },
+        tooltip: {
+            trigger: 'axis',
+            axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+                type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+            }
+        },
+        legend: [
+            {
+                data:['L1/B1','L2/B2','L5/B3'],
+                shadowColor: 'rgba(0, 0, 0, 0.5)',
+                shadowBlur: 10
+            }
+        ],
+        xAxis: [
+            {
+                type: 'category',
+                data: data_satellite.get_item("name")
+            }
+        ],
+        yAxis: [
+            {
+                type: 'value'
+            }
+        ],
+        series: [
         {
-            data:['L1/B1','L2/B2','L5/B3'],
-            shadowColor: 'rgba(0, 0, 0, 0.5)',
-            shadowBlur: 10
-        }
-    ],
-    xAxis: [
+            name: 'L1/B1',
+            type: 'bar',
+            itemStyle:{
+                normal: {
+                    color: "#fc0f22",
+                    barBorderRadius: [5, 5, 0 ,0]
+                }
+            },
+            markPoint: {
+                symbolOffset: [0, "100%"]
+            },
+            data: data_satellite.get_item("snr_L1"),
+            label: {
+                normal:{
+                    show: true
+                }
+            }
+        },
         {
-            type: 'category',
-            data: data_satellite.get_item("name")
-        }
-    ],
-    yAxis: [
+            name: 'L2/B2',
+            type: 'bar',
+            itemStyle:{
+                normal: {
+                    color: "#fcef00",
+                    barBorderRadius: [5, 5, 0 ,0]
+                }
+            },
+            data: data_satellite.get_item("snr_L2"),
+            label: {
+                normal:{
+                    show: true
+                }
+            }
+        },
         {
-            type: 'value'
-        }
-    ],
-    series: [
-    {
-        name: 'L1/B1',
-        type: 'bar',
-        itemStyle:{
-            normal: {
-                color: "#fc0f22",
-                barBorderRadius: [5, 5, 0 ,0]
+            name: 'L5/B3',
+            type: 'bar',
+            itemStyle:{
+                normal: {
+                    color: "#1500ff",
+                    barBorderRadius: [5, 5, 0 ,0]
+                }
+            },
+            data: data_satellite.get_item("snr_L5"),
+            label: {
+                normal:{
+                    show: true
+                }
             }
-        },
-        markPoint: {
-            symbolOffset: [0, "100%"]
-        },
-        data: data_satellite.get_item("snr_L1"),
-        label: {
-            normal:{
-                show: true
-            }
-        }
+        }]
     },
-    {
-        name: 'L2/B2',
-        type: 'bar',
-        itemStyle:{
-            normal: {
-                color: "#fcef00",
-                barBorderRadius: [5, 5, 0 ,0]
-            }
-        },
-        data: data_satellite.get_item("snr_L2"),
-        label: {
-            normal:{
-                show: true
+    media: [ // 这里定义了 media query 的逐条规则。
+        {
+            query: {
+                maxWidth: 768px
+            },   // 这里写规则。
+            option: {       // 这里写此规则满足下的option。
+                legend: {...},
+                ...
             }
         }
-    },
-    {
-        name: 'L5/B3',
-        type: 'bar',
-        itemStyle:{
-            normal: {
-                color: "#1500ff",
-                barBorderRadius: [5, 5, 0 ,0]
-            }
-        },
-        data: data_satellite.get_item("snr_L5"),
-        label: {
-            normal:{
-                show: true
-            }
-        }
-    }
     ]
 };
 
@@ -381,9 +394,9 @@ option_storage = {
 
 $(function(){
     $("#sate_hidden button").click(function(){
-        data_satellite
-    .remove_member(this.value);
+        data_satellite.remove_member(this.value);
     });
+    $("#sate_checkbox input").bootstrapSwitch();
     echarts_satellite_track = echarts.init(document.getElementById('canvas_satellite_track'));
     echarts_satellite_track.setOption(option_satellite_track);
 

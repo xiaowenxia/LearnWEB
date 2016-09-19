@@ -39,6 +39,9 @@
                         </button>
                     </div>
                     <ul class="nav navbar-nav navbar-right">
+                        <button type="button" class="navbar-right-expand-toggle pull-right visible-xs">
+                            <i class="fa fa-times icon"></i>
+                        </button>
 						<li class="dropdown danger">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-power-off"></i> 电源<span class="caret"></span></a>
                             <ul class="dropdown-menu danger animated fadeInDown">
@@ -56,9 +59,9 @@
                                 <li role="presentation"><a role="menuitem" tabindex="-1" href="#">bootswatch-Darkly</a></li>
                             </ul>
                         </li>
-                        <li class="dropdown">
-                        	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-gear"></i> 设置</a> 
-                        </li>
+                        <!-- <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-gear"></i> 设置</a> 
+                        </li> -->
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">语言<span class="caret"></span></a>
                             <ul class="dropdown-menu animated fadeInDown">
@@ -326,13 +329,25 @@
 	                                    <div class="card-jumbotron no-padding" style="background-color:white;">
 	                                    	<div id="canvas_satellite_track" style="width:100%;height:500%"></div>
 	                                    </div>
-	                                    <div class="btn-group card-body half-padding" id="sate_hidden" style="margin-left:23%; padding:0">
-											<button type="button" class="btn btn-success" value="GPS">GPS(G)</button>
-											<button type="button" class="btn btn-success" value="GLONASS">GLONASS(R)</button>
-											<button type="button" class="btn btn-success" value="BDS">BDS(C)</button>
-											<button type="button" class="btn btn-success" value="GALIIEO">GALIIEO(E)</button>
-											<button type="button" class="btn btn-success" value="SBAS">SBAS(S)</button>
-						                </div>
+                                        <div class="card-body no-padding" id="sate_checkbox">
+                                          <div class="row">
+                                            <div class="col-sm-2 col-xs-2">
+                                                <input type="checkbox" data-switch-value="small" data-label-text="GPS" checked>
+                                            </div>
+                                            <div class="col-sm-2 col-xs-2">
+                                                <input type="checkbox" data-switch-value="small" data-label-text="GLONASS" checked>
+                                            </div>
+                                            <div class="col-sm-2 col-xs-2">
+                                                <input type="checkbox" data-switch-value="small" data-label-text="BDS" checked>
+                                            </div>
+                                            <div class="col-sm-2 col-xs-2">
+                                                <input type="checkbox" data-switch-value="small" data-label-text="GALILEO" checked>
+                                            </div>
+                                            <div class="col-sm-2 col-xs-2">
+                                                <input type="checkbox" data-switch-value="small" data-label-text="SBAS" checked>
+                                            </div>
+                                          </div>
+                                        </div>
 	                                </div>
                                 </div>
                             </div>
@@ -355,15 +370,15 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-12">
-                            <div class="card">
+                            <div class="card"  id="satellite_track_table">
                                 <div class="card-header">
 
                                     <div class="card-title">
-                                    <div class="title">Table</div>
+                                    <div class="title">卫星跟踪表</div>
                                     </div>
                                 </div>
                                 <div class="card-body">
-                                    <table class="datatable table table-striped" cellspacing="0" width="100%">
+                                    <table class="datatable table-striped" cellspacing="0" width="100%">
                                         <thead>
                                             <tr>
                                                 <th>卫星编号</th>
