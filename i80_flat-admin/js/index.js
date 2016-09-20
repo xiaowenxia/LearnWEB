@@ -144,6 +144,12 @@ option_satellite_track = {
                 type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
             }
         },
+        toolbox: {
+            right:5,
+            feature: {
+                saveAsImage: {}
+            }
+        },
         legend: [
             {
                 data:['L1/B1','L2/B2','L5/B3'],
@@ -162,6 +168,7 @@ option_satellite_track = {
                 type: 'value'
             }
         ],
+        calculable:true,
         series: [
         {
             name: 'L1/B1',
@@ -217,177 +224,291 @@ option_satellite_track = {
     },
     media: [ // 这里定义了 media query 的逐条规则。
         {
+            option: {
+                legend: {
+                    right: 'center',
+                    top: 0,
+                    orient: 'horizontal'
+                }
+            }
+        },
+        {
             query: {
-                maxWidth: 768px
+                maxWidth: 768
             },   // 这里写规则。
             option: {       // 这里写此规则满足下的option。
-                legend: {...},
-                ...
+                legend: {
+                    top:20,
+                    right:0,
+                    orient:'horizontal',
+                    align:"left"
+                }
             }
         }
     ]
 };
 
 option_satellite_map = {
-    update_data: function(sate_data){
-        this.series[0].data = sate_data.get_sate_position("GPS");
-        this.series[1].data = sate_data.get_sate_position("GLONASS");
-        this.series[2].data = sate_data.get_sate_position("BDS");
-        this.series[3].data = sate_data.get_sate_position("GALILEO");
-        this.series[4].data = sate_data.get_sate_position("SBAS");
+    baseOption: {
+        update_data: function(sate_data){
+            this.series[0].data = sate_data.get_sate_position("GPS");
+            this.series[1].data = sate_data.get_sate_position("GLONASS");
+            this.series[2].data = sate_data.get_sate_position("BDS");
+            this.series[3].data = sate_data.get_sate_position("GALILEO");
+            this.series[4].data = sate_data.get_sate_position("SBAS");
+        },
+        title: {
+            text: '星空图'
+        },
+        legend: {
+            data: ['GPS','GLONASS','BDS','GALILEO','SBAS']
+        },
+        polar: {},
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'cross'
+            }
+        },
+        toolbox: {
+            feature: {
+                saveAsImage: {}
+            }
+        },
+        angleAxis: {
+            type: 'value',
+            startAngle: 0
+        },
+        radiusAxis: {
+        },
+        series: [
+            {
+                coordinateSystem: 'polar',
+                name: 'GPS',
+                type: 'scatter',
+                symbolSize: 30,
+                label: {
+                    normal: {
+                        show: true,
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        color: 'blue'
+                    }
+                },
+                data: []
+            },
+            {
+                coordinateSystem: 'polar',
+                name: 'GLONASS',
+                type: 'scatter',
+                symbolSize: 30,
+                label: {
+                    normal: {
+                        show: true,
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        color: 'yellow'
+                    }
+                },
+                data: []
+            },
+            {
+                coordinateSystem: 'polar',
+                name: 'BDS',
+                type: 'scatter',
+                symbolSize: 30,
+                label: {
+                    normal: {
+                        show: true,
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        color: '#ff5400'
+                    }
+                },
+                data: []
+            },
+            {
+                coordinateSystem: 'polar',
+                name: 'GALILEO',
+                type: 'scatter',
+                symbolSize: 30,
+                label: {
+                    normal: {
+                        show: true,
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        color: 'red'
+                    }
+                },
+                data: []
+            },
+            {
+                coordinateSystem: 'polar',
+                name: 'SBAS',
+                type: 'scatter',
+                symbolSize: 30,
+                label: {
+                    normal: {
+                        show: true,
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        color: 'green'
+                    }
+                },
+                data:[]
+            }
+        ]
     },
-    title: {
-        text: '星空图'
-    },
-    legend: {
-        data: ['GPS','GLONASS','BDS','GALILEO','SBAS']
-    },
-    polar: {},
-    tooltip: {
-        trigger: 'axis',
-        axisPointer: {
-            type: 'cross'
-        }
-    },
-    angleAxis: {
-        type: 'value',
-        startAngle: 0
-    },
-    radiusAxis: {
-    },
-    series: [
+    media: [
         {
-            coordinateSystem: 'polar',
-            name: 'GPS',
-            type: 'scatter',
-            symbolSize: 30,
-            label: {
-                normal: {
-                    show: true,
+            option: {
+                legend: {
+                    top: 0,
+                    right: "center",
+                    orient: 'horizontal'
                 }
-            },
-            itemStyle: {
-                normal: {
-                    color: 'blue'
-                }
-            },
-            data: []
+            }
         },
         {
-            coordinateSystem: 'polar',
-            name: 'GLONASS',
-            type: 'scatter',
-            symbolSize: 30,
-            label: {
-                normal: {
-                    show: true,
-                }
+            query: {
+                maxWidth:768
             },
-            itemStyle: {
-                normal: {
-                    color: 'yellow'
+            option: {
+                legend: {
+                    top:20,
+                    right: 0,
+                    orient: "horizontal"
                 }
-            },
-            data: []
-        },
-        {
-            coordinateSystem: 'polar',
-            name: 'BDS',
-            type: 'scatter',
-            symbolSize: 30,
-            label: {
-                normal: {
-                    show: true,
-                }
-            },
-            itemStyle: {
-                normal: {
-                    color: '#ff5400'
-                }
-            },
-            data: []
-        },
-        {
-            coordinateSystem: 'polar',
-            name: 'GALILEO',
-            type: 'scatter',
-            symbolSize: 30,
-            label: {
-                normal: {
-                    show: true,
-                }
-            },
-            itemStyle: {
-                normal: {
-                    color: 'red'
-                }
-            },
-            data: []
-        },
-        {
-            coordinateSystem: 'polar',
-            name: 'SBAS',
-            type: 'scatter',
-            symbolSize: 30,
-            label: {
-                normal: {
-                    show: true,
-                }
-            },
-            itemStyle: {
-                normal: {
-                    color: 'green'
-                }
-            },
-            data:[]
+            }
         }
     ]
 };
 
 
 option_storage = {
-    tooltip : {
-        formatter: "{a} <br/>{b} : {c}%"
+    baseOption: {
+        tooltip : {
+            formatter: "{a} <br/>{b} : {c}%"
+        },
+        toolbox: {
+            feature: {
+                restore: {},
+                saveAsImage: {}
+            }
+        },
+        series: [
+            {
+                name: '内部存储',
+                type: 'gauge',
+                detail: {formatter:'{value}%'},
+                center : ['25%', '50%'],    // 默认全局居中
+                radius: '100%',
+                startAngle: 180,
+                endAngle:0,
+                axisLine: {
+                    lineStyle: {
+                        width:20
+                    }
+                },
+                splitLine: {
+                    length:20
+                },
+                pointer: {
+                    width:4
+                },
+                title: {
+                    textStyle: {
+                        fontSize:10
+                    }
+                },
+                data: [{value: data_satellite
+                .storage.storage_inside, name: '内部存储'}]
+            },
+            {
+                name: '电池电量',
+                type: 'gauge',
+                center : ['50%', '50%'],    // 默认全局居中
+                radius: '100%',
+                detail: {formatter:'{value}%'},
+                startAngle: 180,
+                endAngle:0,
+                axisLine: {
+                    lineStyle: {
+                        width:20
+                    }
+                },
+                splitLine: {
+                    length:20
+                },
+                pointer: {
+                    width:4
+                },
+                title: {
+                    textStyle: {
+                        fontSize:10
+                    }
+                },
+                data: [{value: data_satellite
+                .storage.battery_inside, name: '电池电量'}]
+            },
+            {
+                name: '外部存储',
+                type: 'gauge',
+                center : ['75%', '50%'],    // 默认全局居中
+                radius: '100%',
+                detail: {formatter:'{value}%'},
+                startAngle: 180,
+                endAngle:0,
+                axisLine: {
+                    lineStyle: {
+                        width:20
+                    }
+                },
+                splitLine: {
+                    length:20
+                },
+                pointer: {
+                    width:4
+                },
+                title: {
+                    textStyle: {
+                        fontSize:10
+                    }
+                },
+                data: [{value: data_satellite
+                .storage.storage_extern, name: '外部存储'}]
+            }
+        ]
     },
-    toolbox: {
-        feature: {
-            restore: {},
-            saveAsImage: {}
-        }
-    },
-    series: [
+    media: [
         {
-            name: '内部存储',
-            type: 'gauge',
-            detail: {formatter:'{value}%'},
-            center : ['25%', '50%'],    // 默认全局居中
-            radius: '100%',
-            startAngle: 180,
-            endAngle:0,
-            data: [{value: data_satellite
-            .storage.storage_inside, name: '内部存储'}]
+            option: {
+            }
         },
         {
-            name: '电池电量',
-            type: 'gauge',
-            center : ['50%', '50%'],    // 默认全局居中
-            radius: '100%',
-            detail: {formatter:'{value}%'},
-            startAngle: 180,
-            endAngle:0,
-            data: [{value: data_satellite
-            .storage.battery_inside, name: '电池电量'}]
-        },
-        {
-            name: '外部存储',
-            type: 'gauge',
-            center : ['75%', '50%'],    // 默认全局居中
-            radius: '100%',
-            detail: {formatter:'{value}%'},
-            startAngle: 180,
-            endAngle:0,
-            data: [{value: data_satellite
-            .storage.storage_extern, name: '外部存储'}]
+            query: {
+                maxWidth:768
+            },
+            option: {
+                series: [
+                    {
+                    },
+                    {
+                    },
+                    {
+                    }
+                ]
+            }
         }
     ]
 };
@@ -396,14 +517,22 @@ $(function(){
     $("#sate_hidden button").click(function(){
         data_satellite.remove_member(this.value);
     });
+    
     $("#sate_checkbox input").bootstrapSwitch();
     echarts_satellite_track = echarts.init(document.getElementById('canvas_satellite_track'));
     echarts_satellite_track.setOption(option_satellite_track);
 
     echarts_satellite_map = echarts.init(document.getElementById('canvas_satellite_map'));
-    option_satellite_map.update_data(data_satellite);
+    option_satellite_map.baseOption.update_data(data_satellite);
     echarts_satellite_map.setOption(option_satellite_map);
 
     echarts_storage = echarts.init(document.getElementById('canvas_storage'));
     echarts_storage.setOption(option_storage, true);
+});
+
+$(function(){
+	$(".card").click(function(){
+    	$(".card .card-second").slideDown("fast");
+    	$(".card .card-first").css("display","none");
+    });
 });

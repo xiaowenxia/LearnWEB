@@ -34,7 +34,11 @@
                         <ol class="breadcrumb navbar-breadcrumb">
                             <li class="active">接收机状态</li>
                         </ol>
+                        <div class="navbar-battery">
+                            <img src="../img/battery/stat_sys_battery_80.png"></img>
+                        </div>
                         <button type="button" class="navbar-right-expand-toggle pull-right visible-xs">
+
                             <i class="fa fa-th icon"></i>
                         </button>
                     </div>
@@ -261,7 +265,7 @@
                     			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 		                            <a href="#">
 		                                <div class="card red summary-inline">
-		                                    <div class="card-body">
+		                                    <div class="card-body card-first">
 		                                        <i class="icon fa fa-map-marker fa-4x"></i>
 		                                        <div class="content">
 		                                            <div class="title">位置</div>
@@ -269,6 +273,35 @@
 		                                        </div>
 		                                        <div class="clear-both"></div>
 		                                    </div>
+                                            <div class="card-body card-second">
+                                                <ul class="list-group">
+                                                  
+                                                  <li class="list-group-item">
+                                                    <div class="row" id="setting_lon">
+                                                      <div class="col-sm-3">经度</div>
+                                                      <div class="col-sm-9">31.999(北纬)</div>
+                                                    </div>
+                                                  </li>
+                                                  <li class="list-group-item">
+                                                    <div class="row" id="setting_lat">
+                                                      <div class="col-sm-3">纬度</div>
+                                                      <div class="col-sm-9">121.17(东经)</div>
+                                                    </div>
+                                                  </li>
+                                                  <li class="list-group-item">
+                                                    <div class="row" id="setting_hight">
+                                                      <div class="col-sm-3">高度</div>
+                                                      <div class="col-sm-9">31.754(m)</div>
+                                                    </div>
+                                                  </li>
+                                                  <li class="list-group-item">
+                                                    <div class="row" id="setting_status">
+                                                      <div class="col-sm-3">解算状态</div>
+                                                      <div class="col-sm-9">单点</div>
+                                                    </div>
+                                                  </li>
+                                                </ul>
+                                            </div>
 		                                </div>
 		                            </a>
 		                        </div>

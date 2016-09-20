@@ -49,6 +49,31 @@ body {
     display:-webkit-inline-flex;
     display:inline-flex;
 }
+.navbar-battery {
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    right: 280px;
+}
+.navbar-battery img {
+    margin: 9px 0 9px 0;
+}
+.card .list-group {
+    color: red;
+}
+.card .list-group-item {
+    opacity: 0.5;
+}
+.card .list-group-item .row > [class*="col-"]{
+    margin-bottom: 0;
+}
+.card .card-first {
+    display: block;
+}
+.card .card-second {
+    display: none;
+    padding: 0px;
+}
 #sate_hidden {/* 
     margin-left:20%;
     margin-right:20%; */
@@ -56,10 +81,6 @@ body {
 }
 #satellite_track_table {
     text-align: center;
-}
-#sate_checkbox {
-    text-align: center;
-    font-size: 20px;
 }
 #sate_checkbox .col-sm-2 {
     margin-bottom: 10px;
@@ -76,3 +97,12 @@ body {
 /* .flat-blue .table.table-striped > tbody > tr:nth-of-type(odd){
     background-color: #98d3fb;
 } */
+@media (max-width: 768px) {
+    .navbar-battery {
+        right: 40px;
+    }
+    #canvas_storage {
+
+        display: none;
+    }
+}
