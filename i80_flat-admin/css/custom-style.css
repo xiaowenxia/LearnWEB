@@ -58,22 +58,29 @@ body {
 .navbar-battery img {
     margin: 9px 0 9px 0;
 }
-.card .list-group {
-    color: red;
+.flat-blue .card.summary-inline:hover {
+    cursor:pointer;
 }
-.card .list-group-item {
-    opacity: 0.5;
+.flat-blue .card.summary-inline.red:hover {
+    background-color: red;
 }
-.card .list-group-item .row > [class*="col-"]{
-    margin-bottom: 0;
+.flat-blue .card.summary-inline.yellow:hover {
+    background-color: #ffb400;
 }
-.card .card-first {
-    display: block;
+.flat-blue .card.summary-inline.green:hover {
+    background-color: #1ABC9C;
 }
-.card .card-second {
-    display: none;
-    padding: 0px;
+.flat-blue .card.summary-inline.blue:hover {
+    background-color: #22A7F0;
 }
+
+
+.card .row > [class*="col-"]{
+    margin-bottom: 4px;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
 #sate_hidden {/* 
     margin-left:20%;
     margin-right:20%; */

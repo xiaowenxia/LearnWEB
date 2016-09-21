@@ -531,8 +531,12 @@ $(function(){
 });
 
 $(function(){
-	$(".card").click(function(){
-    	$(".card .card-second").slideDown("fast");
-    	$(".card .card-first").css("display","none");
+	// $(".card").click(function(){
+ //    	$(".card .card-second").slideDown("fast");
+ //    	$(".card .card-first").css("display","none");
+ //    });
+ var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true
     });
 });
