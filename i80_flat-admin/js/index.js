@@ -518,7 +518,7 @@ $(function(){
         data_satellite.remove_member(this.value);
     });
     
-    $("#sate_checkbox input").bootstrapSwitch();
+    
     echarts_satellite_track = echarts.init(document.getElementById('canvas_satellite_track'));
     echarts_satellite_track.setOption(option_satellite_track);
 
@@ -530,13 +530,3 @@ $(function(){
     echarts_storage.setOption(option_storage, true);
 });
 
-$(function(){
-	// $(".card").click(function(){
- //    	$(".card .card-second").slideDown("fast");
- //    	$(".card .card-first").css("display","none");
- //    });
- var swiper = new Swiper('.swiper-container', {
-        pagination: '.swiper-pagination',
-        paginationClickable: true
-    });
-});

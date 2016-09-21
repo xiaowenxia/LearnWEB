@@ -28,3 +28,14 @@ $(function() {
     return $(".side-menu .nav .dropdown .collapse").collapse('hide');
   });
 });
+
+$(function(){
+ var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true
+    });
+});
+
+$(function(){
+  $("input[type='checkbox']").bootstrapSwitch();
+});

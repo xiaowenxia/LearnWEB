@@ -113,3 +113,7 @@ body {
         display: none;
     }
 }
+
+.form-horizontal .form-group .form-control-feedback {
+    right:10px;
+}
