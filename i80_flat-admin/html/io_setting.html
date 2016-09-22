@@ -262,192 +262,28 @@
                 <div class="side-body padding-top">
                     <div class="row">
                         <div class="col-xs-12">
-                            <div class="step">
-                                <ul class="nav nav-tabs nav-justified" role="tablist">
-                                    <li role="step" class="active">
-                                        <a href="#step1" id="step1-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">
-                                            <div class="icon fa fa-truck"></div>
-                                            <div class="step-title">
-                                                <div class="title">记录设置</div>
-                                                <div class="description">正在记录</div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li role="step">
-                                        <a href="#step2" role="tab" id="step2-tab" data-toggle="tab" aria-controls="profile">
-                                            <div class="icon fa fa-credit-card"></div>
-                                            <div class="step-title">
-                                                <div class="title">FTP推送设置</div>
-                                                <div class="description"></div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li role="step">
-                                        <a href="#step3" role="tab" id="step3-tab" data-toggle="tab" aria-controls="profile">
-                                            <div class="icon fa fa-check-circle-o"></div>
-                                            <div class="step-title">
-                                                <div class="title">FTP推送记录</div>
-                                                <div class="description"></div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li role="step">
-                                        <a href="#step4" role="tab" id="step4-tab" data-toggle="tab" aria-controls="profile">
-                                            <div class="icon fa fa-check-circle-o"></div>
-                                            <div class="step-title">
-                                                <div class="title">数据下载</div>
-                                                <div class="description"></div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                </ul>
-                                <div class="tab-content">
-                                    <div role="tabpanel" class="tab-pane fade in active" id="step1" aria-labelledby="home-tab">
-                                        <div class="panel panel-warning">
-                                            <div class="panel-heading">
-                                                <h4>账号管理</h4>
-                                            </div>
-                                            <div class="panel-body">
-                                                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal_modify_record">修改</button>
-                                                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal_checkinfo_record">详情</button>
-                                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal_clear_record">清除数据</button>
-                                                
-                                                <div class="modal fade modal-danger bs-example-modal-sm" id="modal_modify_record" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                                    <div class="modal-dialog modal-sm">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                                <h4 class="modal-title" id="myModalLabel">修改数据记录</h4>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                                                                <button type="button" class="btn btn-danger">确定</button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-												<div class="modal fade modal-danger bs-example-modal-sm" id="modal_checkinfo_record" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                                    <div class="modal-dialog modal-sm">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                                <h4 class="modal-title" id="myModalLabel">数据记录详情</h4>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                                                                <button type="button" class="btn btn-danger">确定</button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="modal fade modal-danger bs-example-modal-sm" id="modal_clear_record" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                                    <div class="modal-dialog modal-sm">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                                <h4 class="modal-title" id="myModalLabel">是否删除数据记录</h4>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                                                                <button type="button" class="btn btn-danger">确定</button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <table class="datatable table-striped" id="id_record_table" cellspacing="0" width="100%">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>记录编号</th>
-                                                            <th>记录名称</th>
-                                                            <th>是否开启</th>
-                                                            <th>记录状态</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tfoot>
-                                                        <tr>
-                                                            <th>记录编号</th>
-                                                            <th>记录名称</th>
-                                                            <th>是否开启</th>
-                                                            <th>记录状态</th>
-                                                        </tr>
-                                                    </tfoot>
-                                                        <!-- <input type="checkbox" data-switch-value="mini" checked data-size="small" data-on-color="success" data-off-color="danger"> -->
-                                                    </tfoot>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div role="tabpanel" class="tab-pane fade" id="step2" aria-labelledby="profile-tab">
-                                        <div class="panel panel-warning">
-                                            <div class="panel-heading">
-                                                <h4>FTP推送设置</h4>
-                                            </div>
-                                            <div class="panel-body">
-                                                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal_modify_ftp_setting">修改</button>
-                                                
-                                                <div class="modal fade modal-danger bs-example-modal-sm" id="modal_modify_ftp_setting" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                                    <div class="modal-dialog modal-sm">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                                <h4 class="modal-title" id="myModalLabel">修改FTP推送</h4>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                                                                <button type="button" class="btn btn-danger">确定</button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <table class="datatable table-striped" id="id_ftp_setting_table" cellspacing="0" width="100%">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>服务器编号</th>
-                                                            <th>服务器地址</th>
-                                                            <th>远程目录</th>
-                                                            <th>服务器描述</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tfoot>
-                                                        <tr>
-                                                            <th>服务器编号</th>
-                                                            <th>服务器地址</th>
-                                                            <th>远程目录</th>
-                                                            <th>服务器描述</th>
-                                                        </tr>
-                                                    </tfoot>
-                                                        <!-- <input type="checkbox" data-switch-value="mini" checked data-size="small" data-on-color="success" data-off-color="danger"> -->
-                                                    </tfoot>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div role="tabpanel" class="tab-pane fade" id="step3" aria-labelledby="dropdown1-tab">
-                                        
-                                    </div>
-                                    <div role="tabpanel" class="tab-pane fade" id="step4" aria-labelledby="dropdown1-tab">
-                                        
-                                    </div>
-                                </div>
-                            </div>
+                           <table class="datatable table-striped" id="id_record_table" cellspacing="0" width="100%">
+                                <thead>
+                                    <tr>
+                                        <th>记录编号</th>
+                                        <th>记录名称</th>
+                                        <th>是否开启</th>
+                                        <th>记录状态</th>
+                                    </tr>
+                                </thead>
+                                <tfoot>
+                                    <tr>
+                                        <th>记录编号</th>
+                                        <th>记录名称</th>
+                                        <th>是否开启</th>
+                                        <th>记录状态</th>
+                                    </tr>
+                                </tfoot>
+                                    <!-- <input type="checkbox" data-switch-value="mini" checked data-size="small" data-on-color="success" data-off-color="danger"> -->
+                                </tfoot>
+                            </table>
                         </div>
-                    </div>
+                    </div>  
                 </div>
             </div>
         </div>
