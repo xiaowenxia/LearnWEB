@@ -315,7 +315,8 @@
                                                     <button type="button" class="btn btn-danger">关闭</button>
                                                     <button type="button" class="btn btn-danger">清除数据</button>
                                                 </div>
-                                                <table class="table table-hover">
+
+                                                <table class="datatable table-striped" cellspacing="0" width="100%">
                                                     <thead>
                                                         <tr>
                                                             <th>记录编号</th>
@@ -324,72 +325,16 @@
                                                             <th>记录状态</th>
                                                         </tr>
                                                     </thead>
-                                                    <tbody>
+                                                    <tfoot>
                                                         <tr>
-                                                            <th scope="row">1</th>
-                                                            <td>record1</td>
-                                                            <td>
-                                                                <input type="checkbox" data-switch-value="mini" checked data-size="mini" data-on-color="success" data-off-color="danger">
-                                                            </td>
-                                                            <td>未记录</td>
+                                                            <th>记录编号</th>
+                                                            <th>记录名称</th>
+                                                            <th>是否开启</th>
+                                                            <th>记录状态</th>
                                                         </tr>
-                                                        <tr>
-                                                            <th scope="row">2</th>
-                                                            <td>record2</td>
-                                                            <td>
-                                                                <input type="checkbox" data-switch-value="mini" checked data-size="mini" data-on-color="success" data-off-color="danger">
-                                                            </td>
-                                                            <td>未记录</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">3</th>
-                                                            <td>record3</td>
-                                                            <td>
-                                                                <input type="checkbox" data-switch-value="mini" checked data-size="mini" data-on-color="success" data-off-color="danger">
-                                                            </td>
-                                                            <td>未记录</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">4</th>
-                                                            <td>record4</td>
-                                                            <td>
-                                                                <input type="checkbox" data-switch-value="mini" checked data-size="mini" data-on-color="success" data-off-color="danger">
-                                                            </td>
-                                                            <td>未记录</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">5</th>
-                                                            <td>record5</td>
-                                                            <td>
-                                                                <input type="checkbox" data-switch-value="mini" checked data-size="mini" data-on-color="success" data-off-color="danger">
-                                                            </td>
-                                                            <td>未记录</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">6</th>
-                                                            <td>record6</td>
-                                                            <td>
-                                                                <input type="checkbox" data-switch-value="mini" checked data-size="mini" data-on-color="success" data-off-color="danger">
-                                                            </td>
-                                                            <td>未记录</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">7</th>
-                                                            <td>record7</td>
-                                                            <td>
-                                                                <input type="checkbox" data-switch-value="mini" checked data-size="mini" data-on-color="success" data-off-color="danger">
-                                                            </td>
-                                                            <td>未记录</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">8</th>
-                                                            <td>record8</td>
-                                                            <td>
-                                                                <input type="checkbox" data-switch-value="mini" checked data-size="mini" data-on-color="success" data-off-color="danger">
-                                                            </td>
-                                                            <td>未记录</td>
-                                                        </tr>
-                                                    </tbody>
+                                                    </tfoot>
+                                                        <!-- <input type="checkbox" data-switch-value="mini" checked data-size="small" data-on-color="success" data-off-color="danger"> -->
+                                                    </tfoot>
                                                 </table>
                                             </div>
                                         </div>
@@ -431,6 +376,7 @@
             <script type="text/javascript" src="../lib/js/swiper.jquery.min.js"></script>
             <!-- Javascript -->
             <script type="text/javascript" src="../js/app.js"></script>
+            <script type="text/javascript" src="../js/data_record.js"></script>
 </body>
 
 </html>
