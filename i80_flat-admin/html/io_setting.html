@@ -260,31 +260,225 @@
             </div>
             <div class="container-fluid">
                 <div class="side-body padding-top">
-                    <div class="row">
-                        <div class="col-xs-12">
-                           <table class="datatable table-striped" id="id_record_table" cellspacing="0" width="100%">
-                                <thead>
-                                    <tr>
-                                        <th>记录编号</th>
-                                        <th>记录名称</th>
-                                        <th>是否开启</th>
-                                        <th>记录状态</th>
-                                    </tr>
-                                </thead>
-                                <tfoot>
-                                    <tr>
-                                        <th>记录编号</th>
-                                        <th>记录名称</th>
-                                        <th>是否开启</th>
-                                        <th>记录状态</th>
-                                    </tr>
-                                </tfoot>
-                                    <!-- <input type="checkbox" data-switch-value="mini" checked data-size="small" data-on-color="success" data-off-color="danger"> -->
-                                </tfoot>
-                            </table>
-                        </div>
-                    </div>  
-                </div>
+                	<div class="row">
+                		<div class="col-xs-12">
+		                	<div class="card">
+		                        <div class="card-header">
+		                            <div class="card-title">
+		                                <div class="title">数据记录设置</div>
+		                            </div>
+		                        </div>
+		                        <div class="card-body no-padding">
+				                    <div class="step tabs-left card-no-padding">
+						                <ul class="nav nav-tabs" role="tablist">
+						                    <li role="step" class="active">
+						                        <a href="#stepv1" id="step1-vtab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">
+						                            <div class="icon fa fa-cube"></div>
+						                            <div class="step-title">
+						                                <div class="title">RTK客户端</div>
+						                                <div class="description">211.144.118.5:2102</div>
+						                            </div>
+						                        </a>
+						                    </li>
+						                    <li role="step">
+						                        <a href="#stepv2" role="tab" id="step2-vtab" data-toggle="tab" aria-controls="profile">
+						                            <div class="icon fa fa-desktop"></div>
+						                            <div class="step-title">
+						                                <div class="title">TCP/UDP_Client</div>
+						                                <div class="description"></div>
+						                            </div>
+						                        </a>
+						                    </li>
+						                    
+						                    <li role="step">
+						                        <a href="#stepv3" role="tab" id="step3-vtab" data-toggle="tab" aria-controls="profile">
+						                            <div class="icon fa fa-cloud"></div>
+						                            <div class="step-title">
+						                                <div class="title">TCP_Server</div>
+						                                <div class="description"></div>
+						                            </div>
+						                        </a>
+						                    </li>
+						                    <li role="step">
+						                        <a href="#stepv4" role="tab" id="step4-vtab" data-toggle="tab" aria-controls="profile">
+						                            <div class="icon fa fa-terminal"></div>
+						                            <div class="step-title">
+						                                <div class="title">串口</div>
+						                                <div class="description"></div>
+						                            </div>
+						                        </a>
+						                    </li>
+						                    <li role="step">
+						                        <a href="#stepv5" role="tab" id="step5-vtab" data-toggle="tab" aria-controls="profile">
+						                            <div class="icon fa fa-bluetooth"></div>
+						                            <div class="step-title">
+						                                <div class="title">蓝牙</div>
+						                                <div class="description"></div>
+						                            </div>
+						                        </a>
+						                    </li>
+						                    
+						                </ul>
+						                <div class="tab-content">
+					                       <div role="tabpanel" class="tab-pane fade active in" id="stepv1" aria-labelledby="profile-tab">
+                                        <!-- <div class="icon fa fa-check" style="color:#2bd021"></div> -->
+                                        		<div class="row">
+                                        			<div class="col-xs-6">
+		                                        		<div class="panel panel-default" style="width:100%">
+			                                                <div class="panel-heading">设置</div>
+			                                                <div class="panel-body">
+			                                                	<form class="form-horizontal">
+			                                                		<div class="checkbox">
+							                                          	<label for="checkbox-1">开机自动连接</label>
+							                                            <input type="checkbox" id="checkbox-1">
+							                                        </div>
+							                                        <div class="checkbox">
+								                                        <label for="button_1">连接协议</label>
+								                                        <div class="btn-group">
+							                                                <button class="btn btn-default btn-sm dropdown-toggle" id="button_1" type="button" data-toggle="dropdown" aria-expanded="false">TCP<span class="caret"></span>
+							                                                </button>
+							                                                <ul class="dropdown-menu" role="menu">
+							                                                    <li><a>UDP Client</a></li>
+							                                                    <li><a>Ntrip Server</a></li>
+							                                                </ul>
+							                                            </div>
+							                                        </div>
+							                                        <div class="checkbox">
+							                                            <label for="input_port">端口</label>
+							                                            <input type="email" class="form-control" id="input_port" placeholder="端口号">
+							                                        </div>
+							                                    </form>
+							                                </div>
+							                            </div>
+							                        </div>
+							                        <div class="col-xs-6">
+		                                        	<div class="panel panel-default">
+		                                                <div class="panel-heading">设置</div>
+		                                                <div class="panel-body">
+		                                                	<form class="form-horizontal">
+		                                                		<div class="checkbox">
+						                                          	<label for="checkbox-1">开机自动连接</label>
+						                                            <input type="checkbox" id="checkbox-1">
+						                                        </div>
+						                                        <div class="checkbox">
+							                                        <label for="button_1">连接协议</label>
+							                                        <div class="btn-group">
+						                                                <button class="btn btn-default btn-sm dropdown-toggle" id="button_1" type="button" data-toggle="dropdown" aria-expanded="false">TCP<span class="caret"></span>
+						                                                </button>
+						                                                <ul class="dropdown-menu" role="menu">
+						                                                    <li><a>UDP Client</a></li>
+						                                                    <li><a>Ntrip Server</a></li>
+						                                                </ul>
+						                                            </div>
+						                                        </div>
+						                                        <div class="checkbox">
+						                                            <label for="input_port">端口</label>
+						                                            <input type="email" class="form-control" id="input_port" placeholder="端口号">
+						                                        </div>
+						                                        <div class="checkbox">
+							                                        <label for="button_1">差分数据</label>
+							                                        <div class="btn-group">
+						                                                <button class="btn btn-default btn-sm dropdown-toggle" id="button_1" type="button" data-toggle="dropdown" aria-expanded="false">关闭<span class="caret"></span>
+						                                                </button>
+						                                                <ul class="dropdown-menu" role="menu">
+						                                                    <li><a>自动差分</a></li>
+						                                                    <li><a>CMR</a></li>
+						                                                    <li><a>CMR</a></li>
+						                                                    <li><a>CMR</a></li>
+						                                                    <li><a>CMR</a></li>
+						                                                </ul>
+						                                            </div>
+						                                        </div>
+						                                        <div class="checkbox">
+							                                        <label for="button_1">原始数据</label>
+							                                        <div class="btn-group">
+						                                                <button class="btn btn-default btn-sm dropdown-toggle" id="button_1" type="button" data-toggle="dropdown" aria-expanded="false">关闭<span class="caret"></span>
+						                                                </button>
+						                                                <ul class="dropdown-menu" role="menu">
+						                                                    <li><a>自动差分</a></li>
+						                                                    <li><a>CMR</a></li>
+						                                                    <li><a>CMR</a></li>
+						                                                    <li><a>CMR</a></li>
+						                                                    <li><a>CMR</a></li>
+						                                                </ul>
+						                                            </div>
+						                                        </div>
+						                                        <div class="checkbox">
+							                                        <label for="button_1">HCPPP数据</label>
+							                                        <div class="btn-group">
+						                                                <button class="btn btn-default btn-sm dropdown-toggle" id="button_1" type="button" data-toggle="dropdown" aria-expanded="false">关闭<span class="caret"></span>
+						                                                </button>
+						                                                <ul class="dropdown-menu" role="menu">
+						                                                    <li><a>自动差分</a></li>
+						                                                    <li><a>CMR</a></li>
+						                                                    <li><a>CMR</a></li>
+						                                                    <li><a>CMR</a></li>
+						                                                    <li><a>CMR</a></li>
+						                                                </ul>
+						                                            </div>
+						                                        </div>
+						                                        <div class="checkbox">
+							                                        <label for="button_1">HRC数据</label>
+							                                        <div class="btn-group">
+						                                                <button class="btn btn-default btn-sm dropdown-toggle" id="button_1" type="button" data-toggle="dropdown" aria-expanded="false">关闭<span class="caret"></span>
+						                                                </button>
+						                                                <ul class="dropdown-menu" role="menu">
+						                                                    <li><a>自动差分</a></li>
+						                                                    <li><a>CMR</a></li>
+						                                                    <li><a>CMR</a></li>
+						                                                    <li><a>CMR</a></li>
+						                                                    <li><a>CMR</a></li>
+						                                                </ul>
+						                                            </div>
+						                                        </div>
+						                                        <div class="checkbox">
+							                                        <label for="button_1">NMEA</label>
+							                                        <div class="btn-group">
+						                                                <button class="btn btn-default btn-sm dropdown-toggle" id="button_1" type="button" data-toggle="dropdown" aria-expanded="false">关闭<span class="caret"></span>
+						                                                </button>
+						                                                <ul class="dropdown-menu" role="menu">
+						                                                    <li><a>自动差分</a></li>
+						                                                    <li><a>CMR</a></li>
+						                                                    <li><a>CMR</a></li>
+						                                                    <li><a>CMR</a></li>
+						                                                    <li><a>CMR</a></li>
+						                                                </ul>
+						                                            </div>
+						                                        </div>
+						                                        <div class="checkbox">
+							                                        <label for="button_1">数据转发</label>
+							                                        <div class="btn-group">
+						                                                <button class="btn btn-default btn-sm dropdown-toggle" id="button_1" type="button" data-toggle="dropdown" aria-expanded="false">关闭<span class="caret"></span>
+						                                                </button>
+						                                                <ul class="dropdown-menu" role="menu">
+						                                                    <li><a>自动差分</a></li>
+						                                                    <li><a>CMR</a></li>
+						                                                    <li><a>CMR</a></li>
+						                                                    <li><a>CMR</a></li>
+						                                                    <li><a>CMR</a></li>
+						                                                </ul>
+						                                            </div>
+						                                        </div>
+						                                    </form>
+														</div>
+		                                            </div>
+		                                        </div>
+	                                        </div>
+						                    <div role="tabpanel" class="tab-pane fade" id="stepv2" aria-labelledby="profile-tab">
+						                    </div>
+						                    <div role="tabpanel" class="tab-pane fade" id="stepv3" aria-labelledby="dropdown1-tab">
+						                    </div>
+						                    <div role="tabpanel" class="tab-pane fade" id="stepv4" aria-labelledby="dropdown2-tab">
+						                    </div>
+						                    <div role="tabpanel" class="tab-pane fade" id="stepv5" aria-labelledby="dropdown2-tab">
+						                    </div>
+						                </div>
+						            </div>
+								</div>
+						    </div>
+		                </div>
+		            </div>
+		        </div>
             </div>
         </div>
         <footer class="app-footer">
