@@ -1,0 +1,9 @@
+<!--index.wxml-->
+<view class="container">
+  <view  bindtap="onButtonTap" class="userinfo">
+
+  </view>
+  <view>
+    <text class="user-motto">{{motto}}</text>
+  </view>
+</view>

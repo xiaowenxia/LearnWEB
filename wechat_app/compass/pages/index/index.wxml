@@ -1,0 +1,7 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="head">指南针</view>
+  <button type="primary" bindtap="bindViewTap"> 更新数据 </button>
+  <image src="../../img/compass-main.png" mode="aspectFit" class="compass-main"></image>
+  <image src="../../img/compass-pointer.png" mode="aspectFit" class="compass-pointer" style="-webkit-transform: rotate({{rotate}}deg);"></image>
+</view>

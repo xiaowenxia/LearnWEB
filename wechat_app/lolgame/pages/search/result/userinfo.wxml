@@ -1,0 +1,35 @@
+<!--index.wxml-->
+<view class="container">
+	<view class="profile-header">
+		<view class="profile-bg">
+			<image class="profile-header-icon" src="../../../img/profile/profileicon{{user_hot_info[0].icon}}.jpg" background-size="cover"></image>
+			<text class="profile-header-name">{{user_hot_info[0].name}}</text>
+		</view>
+	</view>
+	<view class="profile-container">
+		<view class="profile-tab">
+			<view class="profile-tab-sub {{select[0]}}" bindtap="selectNav" data-index="0">战绩
+			</view>
+			<view class="profile-tab-sub {{select[1]}}" bindtap="selectNav" data-index="1">能力
+			</view>
+			<view class="profile-tab-sub {{select[2]}}" bindtap="selectNav" data-index="2">资产
+			</view>
+		</view>
+		<view class="content-info {{display[0]}}">
+			<view class="content-info-division">
+				<image class="division-img" src="../../../img/division/{{user_hot_info[0].tier}}.png"></image>
+				<text wx:if="{{user_hot_info[0].tier == 255}}">无段位</text>
+				<text>{{division_name[user_hot_info[0].tier]}}{{division_position[user_hot_info[0].queue]}}</text>
+			</view>
+			<view class="content-info-win">
+			<tr class="win-num">
+				<td style="margin-right:20%"><text>战斗力 </text><text style="font-size:20px;color:#ea8010">{{user_hot_info[0].power_value}}</text></td>
+				<td style="text-align:right;width:50%"><text>总局数 </text><text style="font-size:20px;color:#ea8010">1111</text></td>
+			</tr>
+			</view>
+		</view>
+		<view class="content-info-history">
+			<view class="history-header">我的战绩</view>
+		</view>
+	</view>
+</view>
