@@ -13,11 +13,11 @@ $(function() {
   return $('select').select2();
 });
 
-$(function() {
-  return $('.toggle-checkbox').bootstrapSwitch({
-    size: "small"
-  });
-});
+// $(function() {
+//   return $('.toggle-checkbox').bootstrapSwitch({
+//     size: "small"
+//   });
+// });
 
 $(function() {
   return $('.match-height').matchHeight();
@@ -36,6 +36,6 @@ $(function(){
     });
 });
 
-$(function(){
-  $("input[type='checkbox']").bootstrapSwitch();
-});
+// $(function(){
+//   $("input[type='checkbox']").bootstrapSwitch();
+// });
