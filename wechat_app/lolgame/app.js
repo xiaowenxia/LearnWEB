@@ -18,7 +18,7 @@ App({
     
   },
   globalData: {
-    token: "88B90-64CAD-5A88A-806CA",
+    token: "9FCF9-0FCFF-C2709-23CF2",
     area: null,
     search_result: null
   }

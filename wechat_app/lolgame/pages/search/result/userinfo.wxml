@@ -22,10 +22,17 @@
 				<text>{{division_name[user_hot_info[0].tier]}}{{division_position[user_hot_info[0].queue]}}</text>
 			</view>
 			<view class="content-info-win">
-			<tr class="win-num">
-				<td style="margin-right:20%"><text>战斗力 </text><text style="font-size:20px;color:#ea8010">{{user_hot_info[0].power_value}}</text></td>
-				<td style="text-align:right;width:50%"><text>总局数 </text><text style="font-size:20px;color:#ea8010">1111</text></td>
-			</tr>
+				<tr class="win-num">
+					<td style="margin-right:20%"><text>战斗力 </text><text style="font-size:20px;color:#ea8010">{{user_hot_info[0].power_value}}</text></td>
+					<td style="text-align:right;width:50%"><text>胜点 </text><text style="font-size:20px;color:#ea8010">{{user_hot_info[0].win_point}}</text></td>
+				</tr>
+				<view class="win-honor">
+					<block wx:for="{{1,2,3}">
+						<view class="win-honor-item">
+							<image class="honor-img" src="../../../img/division/{{user_hot_info[0].tier}}.png"></image>
+						</view>
+					</block>
+				</view>
 			</view>
 		</view>
 		<view class="content-info-history">

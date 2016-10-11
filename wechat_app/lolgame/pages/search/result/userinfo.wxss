@@ -66,6 +66,7 @@
 }
 /*胜率*/
 .content-info-win {
+	padding: 0 10px;
 	display: flex;
 	width:75%;
 	flex-direction: column;
