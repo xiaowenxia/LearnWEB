@@ -1,10 +1,10 @@
 //app.js
 App({
   onLaunch: function () {
-    //调用API从本地缓存中获取数据
-    var logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
+    // //调用API从本地缓存中获取数据
+    // var logs = wx.getStorageSync('logs') || []
+    // logs.unshift(Date.now())
+    // wx.setStorageSync('logs', logs)
     // wx.request({
     //   url: 'http://lolapi.games-cube.com/Free',
     //   type: "GET",
@@ -18,7 +18,7 @@ App({
     
   },
   globalData: {
-    token: "9FCF9-0FCFF-C2709-23CF2",
+    token: "431DD-3D793-13200-97723",
     area: null,
     search_result: null
   }

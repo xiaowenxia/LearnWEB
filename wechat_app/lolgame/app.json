@@ -1,6 +1,7 @@
 {
   "pages":[
     "pages/index/index",
+    "pages/user/user",
     "pages/search/search",
     "pages/search/result/result",
     "pages/search/result/userinfo"
@@ -24,7 +25,7 @@
       "iconPath": "img/search.png",
       "selectedIconPath": "img/select_search.png"
     }, {
-      "pagePath": "pages/logs/logs",
+      "pagePath": "pages/user/user",
       "text": "我",
       "iconPath": "img/user.png",
       "selectedIconPath": "img/select_user.png"

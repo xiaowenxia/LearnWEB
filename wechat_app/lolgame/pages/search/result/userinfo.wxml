@@ -27,9 +27,35 @@
 					<td style="text-align:right;width:50%"><text>胜点 </text><text style="font-size:20px;color:#ea8010">{{user_hot_info[0].win_point}}</text></td>
 				</tr>
 				<view class="win-honor">
-					<block wx:for="{{1,2,3}">
-						<view class="win-honor-item">
-							<image class="honor-img" src="../../../img/division/{{user_hot_info[0].tier}}.png"></image>
+					<block wx:if="{{user_ext_info[1].god_like_num > 0}}">
+						<view class="win-honor-item" style="background: url(../../../img/honor/honor_god.png) no-repeat 50%">
+							<view class="win-honor-times"><text>{{user_ext_info[1].god_like_num}}次</text></view>
+							<view><text>超神</text></view>
+						</view>
+					</block>
+
+					<block wx:if="{{user_ext_info[1].penta_kills > 0}}">
+						<view class="win-honor-item" style="background: url(../../../img/honor/honor_5_kill.png) no-repeat 50%">
+							<view class="win-honor-times"><text>{{user_ext_info[1].penta_kills}}次</text></view>
+							<view><text>五杀</text></view>
+						</view>
+					</block>
+
+					<block wx:if="{{user_ext_info[1].quadra_kills > 0}}">
+						<view class="win-honor-item" style="background: url(../../../img/honor/honor_4_kill.png) no-repeat 50%">
+							<view class="win-honor-times"><text>{{user_ext_info[1].quadra_kills}}次</text></view>
+							<view><text>四杀</text></view>
+						</view>
+					</block>
+
+					<block wx:if="{{user_ext_info[1].god_like_num>0 && user_ext_info[1].penta_kills>0 && user_ext_info[1].quadra_kills>0 && user_ext_info[1].triple_kills>0}}">
+						
+					</block>
+
+					<block wx:elif="user_ext_info[1].triple_kills>0}}">
+						<view class="win-honor-item" style="background: url(../../../img/honor/honor_3_kill.png) no-repeat 50%">
+							<view class="win-honor-times"><text>{{user_ext_info[1].triple_kills}}次</text></view>
+							<view><text>三杀</text></view>
 						</view>
 					</block>
 				</view>
@@ -37,6 +63,13 @@
 		</view>
 		<view class="content-info-history">
 			<view class="history-header">我的战绩</view>
+			<block wx:for="{{combat_list[0].battle_list}}">
+				<view class="history-content">
+					<image class="history-content-img" src="http://cdn.tgp.qq.com/pallas/images/champions_id/{{combat_list[0].battle_list[index].champion_id}}.png" background-size="cover" />
+		            <text class="widgets__info-name">{{item.name}}fdsafds</text>
+		            <text class="widgets__info-area">{{area[item.area_id-1].name}}fdsafdsafds121</text>
+				</view>
+			</block>
 		</view>
 	</view>
 </view>

@@ -27,12 +27,14 @@
     opacity: .4;
 }
 .widgets__info-name{
+    text-align: center;
     color: green;
     flex: 1;
     padding-left:20px;
 }
 .widgets__info-area{
-    flex: 2;
+    text-align: right;
+    flex: 1;
     padding-left:20px;
 }
 .widgets__info-img{
