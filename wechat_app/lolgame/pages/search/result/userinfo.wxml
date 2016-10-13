@@ -3,8 +3,11 @@
 	<view class="profile-header">
 		<view class="profile-bg">
 			<image class="profile-header-icon" src="../../../img/profile/profileicon{{user_hot_info[0].icon}}.jpg" background-size="cover"></image>
-			<text class="profile-header-name">{{user_hot_info[0].name}}</text>
 		</view>
+		<view style="width:100%">
+			<label class="profile-header-name" style="text-align:center;display:block;">{{user_hot_info[0].name}}</label>
+		</view>
+
 	</view>
 	<view class="profile-container">
 		<view class="profile-tab">
