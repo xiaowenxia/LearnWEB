@@ -28,50 +28,7 @@ Page({
       }
     })
 
-      wx.request({
-        url: 'http://lolapi.games-cube.com/GetJudgement?flag=11',
-        type: "GET",
-        header: {
-            "DAIWAN-API-TOKEN": l_token
-        },
-        success: function(res) {
-          console.log("1")
-          console.log(JSON.stringify(res))
-        }
-      })
-      wx.request({
-        url: 'http://lolapi.games-cube.com/GetJudgement?flag=12',
-        type: "GET",
-        header: {
-            "DAIWAN-API-TOKEN": l_token
-        },
-        success: function(res) {
-          console.log("2")
-          console.log(JSON.stringify(res))
-        }
-      })
-      wx.request({
-        url: 'http://lolapi.games-cube.com/GetJudgement?flag=111',
-        type: "GET",
-        header: {
-            "DAIWAN-API-TOKEN": l_token
-        },
-        success: function(res) {
-          console.log("3")
-          console.log(JSON.stringify(res))
-        }
-      })
-      wx.request({
-        url: 'http://lolapi.games-cube.com/GetJudgement?flag=14',
-        type: "GET",
-        header: {
-            "DAIWAN-API-TOKEN": l_token
-        },
-        success: function(res) {
-          console.log("4")
-          console.log(JSON.stringify(res))
-        }
-      })
+    
   }
   
 })

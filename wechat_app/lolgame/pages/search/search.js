@@ -3,7 +3,7 @@ var app = getApp()
 Page({
   data: {
     token:null,
-    search_name:"xiaxiaowen",
+    search_name:"专业坑爹20年了",
     loading:false,
     toastHidden:true
   },

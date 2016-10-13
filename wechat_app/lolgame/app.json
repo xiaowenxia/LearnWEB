@@ -4,7 +4,8 @@
     "pages/user/user",
     "pages/search/search",
     "pages/search/result/result",
-    "pages/search/result/userinfo"
+    "pages/search/userinfo/userinfo",
+    "pages/search/battledetail/battledetail"
   ],
   "window":{
     "backgroundTextStyle":"light",

@@ -3,7 +3,6 @@
   height: 100%;
   align-items: center;
   justify-content: space-between;
-  padding: 20rpx 0;
   box-sizing: border-box;
 }
 .widgets__item{
