@@ -1,59 +1,45 @@
 //获取应用实例
 var app = getApp()
+var date = require('../../../utils/util.js')
 Page({
   data:{
     select: ["select", "",""],
     display:["display","hidden","hidden"],
-    division_name: [
-    "最强王者","璀璨钻石","华贵铂金","荣耀黄金","不屈白银","英勇黄铜","超凡大师"
-    ],
-    game_type: [
-    {"name":"未知比赛类型"},
-    {"name":"自定义"},
-    {"name":"新手关"},
-    {"name":"匹配赛"},
-    {"name":"排位赛"},
-    {"name":"战队赛"},
-    {"name":"大乱斗"},
-    {"name":"人机"},
-    {"name":"统治战场"},
-    {"name":"大对决"},
-    {"name":"未知比赛类型"},
-    {"name":"克隆赛"},
-    {"name":"未知比赛类型"},
-    {"name":"未知比赛类型"},
-    {"name":"无限火力"},
-    {"name":"镜像赛"},
-    {"name":"末日赛"},
-    {"name":"飞升赛"},
-    {"name":"六杀丛林"},
-    {"name":"魄罗乱斗"},
-    {"name":"互选征召"},
-    {"name":"佣兵战"},
-    {"name":"未知比赛类型"},
-    {"name":"未知比赛类型"},
-    {"name":"无限乱斗"}],
-    win: {
-      "name":["未定义","胜利","失败"],
-      "color":["red","green","red"]
-    },
-    division_position: ["I","II","III","IV","V"]
+    game_time: {
+      "days": 0,
+      "hours": 0,
+      "minutes": 0,
+      "seconds": 0
+    }
   },
-  selectNav: function(event){
-    var index = parseInt(event.target.dataset.index);
-    var sel = ["","",""]
-    var dis = ["hidden","hidden","hidden"]
-    sel[index] = "select"
-    dis[index] = "display"
-    this.setData({
-      select:sel,
-      display:dis
-    })
-  },
+  
   onReady: function() {
     wx.setNavigationBarTitle({
-      title: this.data.area[this.data.area_id-1].name
+      title: "战绩详情"
     })
+  },
+  //计算小时数后剩余的毫秒数
+  cal_minute(date1, date2) {
+    var date3 = date2.getTime()-date1.getTime()  //时间差的毫秒数
+    //计算出相差天数
+    var days=Math.floor(date3/(24*3600*1000))
+    //计算出小时数
+    var leave1=date3%(24*3600*1000)    //计算天数后剩余的毫秒数
+    var hours=Math.floor(leave1/(3600*1000))
+    //计算相差分钟数
+    var leave2=leave1%(3600*1000)        //计算小时数后剩余的毫秒数
+    var minutes=Math.floor(leave2/(60*1000))
+    //计算相差秒数
+    var leave3=leave2%(60*1000)      //计算分钟数后剩余的毫秒数
+    var seconds=Math.round(leave3/1000)
+
+    that.setData({
+      game_time.days: days,
+      game_time.hours: hours,
+      game_time.days: days,
+      game_time.days: days,
+    })
+    console.log(" 相差 "+days+"天 "+hours+"小时 "+minutes+" 分钟"+seconds+" 秒")
   },
   onLoad: function(options) {
     var that = this
@@ -61,12 +47,13 @@ Page({
       qquin: options.qquin,
       area_id: options.area_id,
       token: app.globalData.token,
+      game_id: options.game_id,
       area: app.globalData.area,
       battle_flag: app.globalData.battle_flag
     })
     
     wx.request({
-      url: 'http://lolapi.games-cube.com/UserHotInfo?qquin='+this.data.qquin+'&vaid='+this.data.area_id,
+      url: 'http://lolapi.games-cube.com/GameDetail?qquin='+this.data.qquin+'&vaid='+this.data.area_id+'&gameid='+this.data.game_id,
       type: "GET",
       header: {
           "DAIWAN-API-TOKEN": this.data.token
@@ -74,38 +61,12 @@ Page({
       success: function(res) {
         //console.log(JSON.stringify(res))
         that.setData({
-          user_hot_info: res.data.data
+          game_detail: res.data.data[0].battle,
+          start_time: res.data.data[0].battle.start_time.split(' ')[1],
+          //game_time: date.stringToDate(res.data.data[0].battle.start_time)
         })
       }
     })
-    wx.request({
-      url: 'http://lolapi.games-cube.com/UserExtInfo?qquin='+this.data.qquin+'&vaid='+this.data.area_id,
-      type: "GET",
-      header: {
-          "DAIWAN-API-TOKEN": this.data.token
-      },
-      success: function(res) {
-        //console.log(JSON.stringify(res))
-        that.setData({
-          user_ext_info: res.data.data
-        })
-      }
-    })
-    wx.request({
-      url: 'http://lolapi.games-cube.com/CombatList?qquin='+this.data.qquin+'&vaid='+this.data.area_id+'&p=0',
-      type: "GET",
-      header: {
-          "DAIWAN-API-TOKEN": this.data.token
-      },
-      success: function(res) {
-        //console.log(JSON.stringify(res))
-        that.setData({
-          combat_list: res.data.data
-        })
-      }
-    })
-    
-    
   }
   
 })

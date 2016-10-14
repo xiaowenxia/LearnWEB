@@ -36,10 +36,10 @@ App({
         this.get_battle_flag()
     },
     globalData: {
-    token: "D8493-06598-499D9-9D909",
+    token: "D400B-5B07A-C4A0D-5C07C",
     area: null,
     search_result: null,
-    idx: 0,
+    idx: 1,
     battle_flag: []
     }
 })
