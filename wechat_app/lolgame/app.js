@@ -36,7 +36,7 @@ App({
         this.get_battle_flag()
     },
     globalData: {
-    token: "D400B-5B07A-C4A0D-5C07C",
+    token: "324F8-8EF8A-885EE-880F8",
     area: null,
     search_result: null,
     idx: 1,
