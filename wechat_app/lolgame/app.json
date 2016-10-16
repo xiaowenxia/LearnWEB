@@ -26,7 +26,7 @@
       "iconPath": "img/search.png",
       "selectedIconPath": "img/select_search.png"
     }, {
-      "pagePath": "pages/user/user",
+      "pagePath": "pages/search/userinfo/userinfo",
       "text": "我",
       "iconPath": "img/user.png",
       "selectedIconPath": "img/select_user.png"

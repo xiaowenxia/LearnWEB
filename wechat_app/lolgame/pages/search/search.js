@@ -3,7 +3,7 @@ var app = getApp()
 Page({
   data: {
     token:null,
-    search_name:"专业坑爹20年了",
+    search_name:"恶人谷丶小霸王",
     loading:false,
     toastHidden:true
   },

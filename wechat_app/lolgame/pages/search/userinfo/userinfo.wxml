@@ -7,7 +7,6 @@
 		<view style="width:100%">
 			<label class="profile-header-name" style="text-align:center;display:block;">{{user_hot_info[0].name}}</label>
 		</view>
-
 	</view>
 	<view class="profile-container">
 		<view class="profile-tab">
