@@ -91,7 +91,7 @@
 }
 .winner-detail-name-left {
 	padding-left: 8px;
-	flex: 2;
+	flex: 5;
 }
 .left-item image{
 	margin-right: 3px;
