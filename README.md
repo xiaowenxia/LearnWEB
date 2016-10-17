@@ -3,5 +3,4 @@ this is a repository just for saving the source code while I learning html,javas
 http://xiaowenxia.github.io/LearnWEB/
 [相关说明](http://example.net/)网页链接
 # 微信小应用 LOL战绩查询
-
-<iframe height=615 width=400 src="./wechat_app/lolgame/lolgame.gif">
+![](https://github.com/xiaowenxia/LearnWEB/tree/master/wechat_app/lolgame/lolgame.gif)
