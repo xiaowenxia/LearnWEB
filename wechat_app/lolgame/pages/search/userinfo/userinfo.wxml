@@ -2,7 +2,7 @@
 <view class="container">
 	<view class="profile-header">
 		<view class="profile-bg">
-			<image class="profile-header-icon" src="../../../img/profile/profileicon{{user_hot_info[0].icon}}.jpg" background-size="cover"></image>
+			<image class="profile-header-icon" src="http://cdn.tgp.qq.com/pallas/images/usericon/{{user_hot_info[0].icon}}.png" background-size="cover"></image>
 		</view>
 		<view style="width:100%">
 			<label class="profile-header-name" style="text-align:center;display:block;">{{user_hot_info[0].name}}</label>
@@ -88,7 +88,7 @@
 		<view class="{{display[1]}}">
 			<!-- canvas.wxml -->
 			<view class="canvas-abilty">
-				<canvas style="width: 200px; height: 200px;" canvas-id="firstCanvas"></canvas>
+				<canvas style="width: 250px; height: 250px;" canvas-id="firstCanvas"></canvas>
 				<!-- 当使用绝对定位时，文档流后边的canvas的显示层级高于前边的canvas-->
 			</view>
 		</view>
