@@ -15,14 +15,14 @@
 <script>
   window.onload = function(){
         document.getElementById('iframe1').contentWindow.postMessage("hi there yourself!  ", 'https://huangbin1.github.io');
-        window.addEventListener('message', function(event) {
+        window.attachEvent('onmessage', function(event) {
         if (event.origin !== "https://huangbin1.github.io")
             return;
         var str = JSON.parse(event.data);
         if (str.iframe1) {
           document.getElementById("iframe1").style.height = str.iframe1 + "px";
         }
-       }, false);
+       });
  }
  
 </script>
