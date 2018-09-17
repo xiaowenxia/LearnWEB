@@ -13,7 +13,7 @@
 </div>
 </body>
 <script>
-  //window.onload = function(){
+  window.onload = function(){
         document.getElementById('iframe1').contentWindow.postMessage("hi there yourself!  ", 'https://huangbin1.github.io');
         window.addEventListener('message', function(event) {
         if (event.origin !== "https://huangbin1.github.io")
@@ -23,6 +23,6 @@
           document.getElementById("iframe1").style.height = str.iframe1 + "px";
         }
        }, false);
- //}
+ }
  
 </script>
