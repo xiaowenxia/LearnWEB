@@ -15,13 +15,21 @@
 <script>
   window.onload = function(){
         document.getElementById('iframe1').contentWindow.postMessage("hi there yourself!  ", 'https://huangbin1.github.io');
-        window.attachEvent('onmessage', function(event) {
-        if (event.origin !== "https://huangbin1.github.io")
-            return;
+        function receiveMessage(event) {
+      if (event.origin === "https://huangbin1.github.io") {
         var str = JSON.parse(event.data);
         if (str.iframe1) {
           document.getElementById("iframe1").style.height = str.iframe1 + "px";
         }
+      }
+    }
+    if (window.addEventListener) {
+      window.addEventListener("message", receiveMessage, false);
+    } else {
+      if (window.attachEvent) {
+        window.attachEvent("onmessage", receiveMessage);
+      }
+    }
        });
  }
  
