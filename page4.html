@@ -23,7 +23,7 @@
         if (str.iframe1) {
           document.getElementById("iframe1").style.height = str.iframe1 + "px";
         }
-        event.source.postMessage("hi there yourself!  the secret response " +
+         document.getElementById('iframe1').contentWindow.postMessage("hi there yourself!  the secret response " +
                            "is: rheeeeet!",
                            event.origin);
       }
