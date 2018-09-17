@@ -15,11 +15,19 @@
 <script>
   function resizeCrossDomainIframe(){
   window.addEventListener('message', function(event) {
+    if (event.origin !== "https://huangbin1.github.io")
+      return;
+
       if (event.origin === "https://huangbin1.github.io") {
         var str = JSON.parse(event.data);
         if (str.iframe1) {
           document.getElementById("iframe1").style.height = str.iframe1 + "px";
-        }}
+        }
+        event.source.postMessage("hi there yourself!  the secret response " +
+                           "is: rheeeeet!",
+                           event.origin);
+      }
             }, false);
+    
   }
 </script>
