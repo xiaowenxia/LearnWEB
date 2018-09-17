@@ -14,7 +14,7 @@
 </body>
 <script>
   window.onload = function(){
-        document.getElementById('iframe1').contentWindow.postMessage("hi there yourself!  ", event.origin);
+        document.getElementById('iframe1').contentWindow.postMessage("hi there yourself!  ", 'https://huangbin1.github.io');
         window.addEventListener('message', function(event) {
         if (event.origin !== "https://huangbin1.github.io")
             return;
