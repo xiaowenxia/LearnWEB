@@ -16,11 +16,8 @@
   window.onload = function(){
         document.getElementById('iframe1').contentWindow.postMessage("hi there yourself!  ", 'https://huangbin1.github.io');
         function receiveMessage(event) {
-      if (event.origin === "https://huangbin1.github.io") {
-        var str = JSON.parse(event.data);
-        if (str.iframe1) {
+      if (event.origin == "https://huangbin1.github.io") {
           document.getElementById("iframe1").style.height = str.iframe1 + "px";
-        }
       }
     }
     if (window.addEventListener) {
